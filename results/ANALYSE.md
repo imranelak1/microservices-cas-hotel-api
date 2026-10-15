@@ -2,6 +2,8 @@
 
 Campagne complète du 15 octobre 2026 : [run 38671019384](https://github.com/imranelak1/microservices-cas-hotel-api/actions/runs/38671019384), commit `1091c775b6f5cc50e3e77442d3c21b9e2999a7cd`. Les 144 phases sont terminées, avec trois répétitions par combinaison et au moins trois intervalles CPU entièrement couverts par phase. Les CSV bruts compressés sont dans `raw/` ; chaque environnement et fenêtre de phase se trouve dans `runs/`. Les essais locaux et les smokes sont exclus de ces chiffres.
 
+![Campagne terminée : quatre jobs réussis](../screenshots/benchmark-github.png)
+
 ## Latence moyenne des appels réussis
 
 En millisecondes, à **100 utilisateurs**, trois répétitions regroupées. Les erreurs restent comptées séparément ; `comparison.csv` contient aussi les latences de toutes les tentatives et les p50/p95/p99 calculés sur les observations regroupées.
