@@ -1,0 +1,81 @@
+{
+  "tls": {
+    "19701": {
+      "version": "TLSv1.3",
+      "cipher": "TLS_AES_256_GCM_SHA384"
+    },
+    "19702": {
+      "version": "TLSv1.3",
+      "cipher": "TLS_AES_256_GCM_SHA384"
+    },
+    "19703": {
+      "version": "TLSv1.3",
+      "cipher": "TLS_AES_256_GCM_SHA384"
+    },
+    "19705": {
+      "version": "TLSv1.3",
+      "cipher": "TLS_AES_256_GCM_SHA384"
+    }
+  },
+  "requests": [
+    {
+      "api": "REST HTTPS",
+      "status": 200,
+      "reservation_id": 1
+    },
+    {
+      "api": "GraphQL HTTPS",
+      "status": 200,
+      "response": {
+        "data": {
+          "reservation": {
+            "id": "1",
+            "clientId": "1",
+            "chambreId": "1"
+          }
+        }
+      }
+    },
+    {
+      "api": "SOAP HTTPS",
+      "status": 200,
+      "valid_response": true
+    },
+    {
+      "port": 19701,
+      "unauthenticated_status": 401
+    },
+    {
+      "port": 19702,
+      "unauthenticated_status": 401
+    },
+    {
+      "port": 19703,
+      "unauthenticated_status": 401
+    },
+    {
+      "api": "gRPC TLS/HTTP2",
+      "response": {
+        "id": "1",
+        "clientId": "1",
+        "chambreId": "1",
+        "dateDebut": "2030-01-01",
+        "dateFin": "2030-01-03",
+        "preferences": "Ã‰tage calme",
+        "client": {
+          "id": "1",
+          "nom": "Client 1",
+          "prenom": "PrÃ©nom 1",
+          "email": "client1@example.org",
+          "telephone": "0600000001"
+        },
+        "chambre": {
+          "id": "1",
+          "type": "SIMPLE",
+          "prix": 350,
+          "disponible": true
+        }
+      }
+    }
+  ]
+}

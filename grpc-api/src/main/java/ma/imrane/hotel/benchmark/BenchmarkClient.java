@@ -19,7 +19,9 @@ public class BenchmarkClient {
     private static final ObjectMapper JSON=new ObjectMapper();
     private static final HttpClient HTTP=HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(5)).build();
     private static String token;
+    private static long tokenIssued;
     private static PrintWriter csv;
+    private static PrintWriter phaseCsv;
     private static ManagedChannel channel;
     private static HotelServiceGrpc.HotelServiceBlockingStub grpc;
     private static final String HOST=System.getProperty("host","localhost");
@@ -28,14 +30,12 @@ public class BenchmarkClient {
     private static int[] numbers(String name,String fallback){return Arrays.stream(System.getProperty(name,fallback).split(",")).mapToInt(Integer::parseInt).toArray();}
 
     public static void main(String[] args) throws Exception {
-        var login=request(19601,"/auth/token","POST","{\"username\":\"student\",\"password\":\"labpass\"}",false);
-        token=JSON.readTree(login.body()).get("token").asText();
         channel=ManagedChannelBuilder.forAddress(HOST,Integer.getInteger("grpc.port",19605)).usePlaintext().build();
-        var headers=new Metadata();headers.put(Metadata.Key.of("authorization",Metadata.ASCII_STRING_MARSHALLER),"Bearer "+token);
-        grpc=HotelServiceGrpc.newBlockingStub(channel).withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers));
+        authenticate();
         Path path=Path.of(System.getProperty("output","results/raw-client.csv"));Files.createDirectories(path.toAbsolutePath().getParent());
-        try(var writer=new PrintWriter(Files.newBufferedWriter(path,StandardCharsets.UTF_8))){
-            csv=writer;csv.println("timestamp,protocol,size_kib,concurrency,repetition,operation,elapsed_ms,success,request_bytes,response_bytes");
+        try(var writer=new PrintWriter(Files.newBufferedWriter(path,StandardCharsets.UTF_8));var phases=new PrintWriter(Files.newBufferedWriter(Path.of(path+".phases.csv"),StandardCharsets.UTF_8))){
+            csv=writer;phaseCsv=phases;csv.println("timestamp,protocol,size_kib,concurrency,repetition,operation,elapsed_ms,success,request_bytes,response_bytes");
+            phases.println("protocol,size_kib,concurrency,repetition,start_ms,end_ms,duration_seconds");
             for(String protocol:System.getProperty("protocols","rest,soap,graphql,grpc").split(","))
                 for(int size:numbers("sizes","1,10,100")) for(int users:numbers("users","10,100,500,1000"))
                     for(int repeat=1;repeat<=Integer.getInteger("repetitions",3);repeat++) phase(protocol,size,users,repeat);
@@ -43,9 +43,10 @@ public class BenchmarkClient {
     }
 
     private static void phase(String protocol,int size,int users,int repetition) throws Exception {
+        if(System.currentTimeMillis()-tokenIssued>20*60_000L)authenticate();
         var pool=executor(users);var gate=new CountDownLatch(1);var futures=new ArrayList<Future<?>>();
         String date=LocalDate.of(2040,1,1).plusDays(++phaseSequence*10L).toString();
-        long start=System.nanoTime();
+        long startedMillis=System.currentTimeMillis(),start=System.nanoTime();
         for(int user=0;user<users;user++){
             final int number=user;
             futures.add(pool.submit(()->{
@@ -66,7 +67,16 @@ public class BenchmarkClient {
         }
         gate.countDown();for(var future:futures)future.get();pool.shutdown();pool.awaitTermination(30,TimeUnit.SECONDS);
         csv.flush();
+        if(phaseCsv!=null){phaseCsv.printf(Locale.ROOT,"%s,%d,%d,%d,%d,%d,%.6f%n",protocol,size,users,repetition,startedMillis,System.currentTimeMillis(),(System.nanoTime()-start)/1e9);phaseCsv.flush();}
         System.out.printf(Locale.ROOT,"%s size=%dKiB users=%d repetition=%d duration=%.3fs%n",protocol,size,users,repetition,(System.nanoTime()-start)/1e9);
+    }
+
+    private static void authenticate() throws Exception {
+        var login=request(Integer.getInteger("login.port",19601),"/auth/token","POST","{\"username\":\"student\",\"password\":\"labpass\"}",false);
+        if(login.statusCode()!=200)throw new IllegalStateException("Connexion JWT impossible");
+        token=JSON.readTree(login.body()).get("token").asText();tokenIssued=System.currentTimeMillis();
+        var headers=new Metadata();headers.put(Metadata.Key.of("authorization",Metadata.ASCII_STRING_MARSHALLER),"Bearer "+token);
+        grpc=HotelServiceGrpc.newBlockingStub(channel).withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers));
     }
 
     /** Java 21 allège le générateur à 1 000 utilisateurs ; les API restent compilées pour Java 17. */
@@ -94,6 +104,7 @@ public class BenchmarkClient {
         String method=switch(operation){case "create"->"POST";case "update"->"PUT";case "delete"->"DELETE";default->"GET";};
         var response=request(19601,"/api/reservations"+(operation.equals("create")?"":"/"+id),method,body,true);
         boolean ok=response.statusCode()>=200&&response.statusCode()<300;
+        if(ok&&operation.equals("delete"))ok=JSON.readTree(response.body()).path("deleted").asBoolean();
         long found=id;if(ok&&operation.equals("create"))found=JSON.readTree(response.body()).get("id").asLong();
         return new Result(ok,found,bytes(body),bytes(response.body()));
     }
@@ -104,6 +115,7 @@ public class BenchmarkClient {
         var variables=new LinkedHashMap<String,Object>();if(!operation.equals("create"))variables.put("id",Long.toString(id));if(operation.equals("create")||operation.equals("update"))variables.put("input",input);
         String body=JSON.writeValueAsString(Map.of("query",query,"variables",variables));
         var response=request(19603,"/graphql","POST",body,true);JsonNode json=JSON.readTree(response.body());boolean ok=response.statusCode()==200&&!json.has("errors");
+        if(ok&&operation.equals("delete"))ok=json.at("/data/deleteReservation").asBoolean();
         long found=ok&&operation.equals("create")?json.at("/data/createReservation/id").asLong():id;
         return new Result(ok,found,bytes(body),bytes(response.body()));
     }
@@ -116,6 +128,7 @@ public class BenchmarkClient {
         body.append("</h:").append(name).append("></s:Body></s:Envelope>");
         var response=HTTP.send(HttpRequest.newBuilder(URI.create("http://"+HOST+":19602/ws/hotel")).timeout(Duration.ofSeconds(15)).header("Content-Type","text/xml;charset=UTF-8").header("Authorization","Bearer "+token).POST(HttpRequest.BodyPublishers.ofString(body.toString())).build(),HttpResponse.BodyHandlers.ofString());
         boolean ok=response.statusCode()==200&&!response.body().contains(":Fault");long found=id;
+        if(ok&&operation.equals("delete"))ok=response.body().matches("(?s).*<(?:\\w+:)?return>true</.*");
         if(ok&&operation.equals("create")){var factory=DocumentBuilderFactory.newInstance();factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl",true);var document=factory.newDocumentBuilder().parse(new ByteArrayInputStream(response.body().getBytes(StandardCharsets.UTF_8)));found=Long.parseLong(document.getElementsByTagName("id").item(0).getTextContent());}
         return new Result(ok,found,bytes(body.toString()),bytes(response.body()));
     }

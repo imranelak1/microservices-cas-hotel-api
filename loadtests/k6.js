@@ -35,7 +35,7 @@ function call(operation,id,input,token){
     const names={create:'createReservation',read:'getReservation',update:'updateReservation',delete:'deleteReservation'};
     const fields=Object.keys(input).map(key=>`<${key}>${input[key]}</${key}>`).join('');
     const body=`<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:h="http://hotel.imrane.ma/"><s:Body><h:${names[operation]}>${operation==='create'?'':`<id>${id}</id>`}${operation==='create'||operation==='update'?`<input>${fields}</input>`:''}</h:${names[operation]}></s:Body></s:Envelope>`;
-    const response=http.post(`http://${host}:19602/ws/hotel`,body,{headers:{...headers,'Content-Type':'text/xml;charset=UTF-8'}});
+    const response=http.post(`http://${host}:19602/ws/hotel`,body,{headers:Object.assign({},headers,{'Content-Type':'text/xml;charset=UTF-8'})});
     const found=response.body.match(/<id>(\d+)<\/id>/);return{ok:response.status===200&&!response.body.includes(':Fault'),id:found&&found[1]};
   }
   const methods={create:'POST',read:'GET',update:'PUT',delete:'DELETE'};

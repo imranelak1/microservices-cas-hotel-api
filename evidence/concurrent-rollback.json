@@ -1,0 +1,166 @@
+{
+  "attempts": 20,
+  "created": 1,
+  "rejected": 19,
+  "cleaned_id": 14470,
+  "results": [
+    {
+      "attempt": 0,
+      "status": 400,
+      "response": {
+        "error": "Réservation invalide ou chambre déjà réservée"
+      }
+    },
+    {
+      "attempt": 1,
+      "status": 201,
+      "response": {
+        "id": 14470,
+        "clientId": 1,
+        "chambreId": 1000,
+        "dateDebut": "2075-01-01",
+        "dateFin": "2075-01-03",
+        "preferences": "concurrency-check",
+        "client": {
+          "id": 1,
+          "nom": "Client 1",
+          "prenom": "Prénom 1",
+          "email": "client1@example.org",
+          "telephone": "0600000001"
+        },
+        "chambre": {
+          "id": 1000,
+          "type": "DOUBLE",
+          "prix": 300.0,
+          "disponible": true
+        }
+      }
+    },
+    {
+      "attempt": 2,
+      "status": 400,
+      "response": {
+        "error": "Réservation invalide ou chambre déjà réservée"
+      }
+    },
+    {
+      "attempt": 3,
+      "status": 400,
+      "response": {
+        "error": "Réservation invalide ou chambre déjà réservée"
+      }
+    },
+    {
+      "attempt": 4,
+      "status": 400,
+      "response": {
+        "error": "Réservation invalide ou chambre déjà réservée"
+      }
+    },
+    {
+      "attempt": 5,
+      "status": 400,
+      "response": {
+        "error": "Réservation invalide ou chambre déjà réservée"
+      }
+    },
+    {
+      "attempt": 6,
+      "status": 400,
+      "response": {
+        "error": "Réservation invalide ou chambre déjà réservée"
+      }
+    },
+    {
+      "attempt": 7,
+      "status": 400,
+      "response": {
+        "error": "Réservation invalide ou chambre déjà réservée"
+      }
+    },
+    {
+      "attempt": 8,
+      "status": 400,
+      "response": {
+        "error": "Réservation invalide ou chambre déjà réservée"
+      }
+    },
+    {
+      "attempt": 9,
+      "status": 400,
+      "response": {
+        "error": "Réservation invalide ou chambre déjà réservée"
+      }
+    },
+    {
+      "attempt": 10,
+      "status": 400,
+      "response": {
+        "error": "Réservation invalide ou chambre déjà réservée"
+      }
+    },
+    {
+      "attempt": 11,
+      "status": 400,
+      "response": {
+        "error": "Réservation invalide ou chambre déjà réservée"
+      }
+    },
+    {
+      "attempt": 12,
+      "status": 400,
+      "response": {
+        "error": "Réservation invalide ou chambre déjà réservée"
+      }
+    },
+    {
+      "attempt": 13,
+      "status": 400,
+      "response": {
+        "error": "Réservation invalide ou chambre déjà réservée"
+      }
+    },
+    {
+      "attempt": 14,
+      "status": 400,
+      "response": {
+        "error": "Réservation invalide ou chambre déjà réservée"
+      }
+    },
+    {
+      "attempt": 15,
+      "status": 400,
+      "response": {
+        "error": "Réservation invalide ou chambre déjà réservée"
+      }
+    },
+    {
+      "attempt": 16,
+      "status": 400,
+      "response": {
+        "error": "Réservation invalide ou chambre déjà réservée"
+      }
+    },
+    {
+      "attempt": 17,
+      "status": 400,
+      "response": {
+        "error": "Réservation invalide ou chambre déjà réservée"
+      }
+    },
+    {
+      "attempt": 18,
+      "status": 400,
+      "response": {
+        "error": "Réservation invalide ou chambre déjà réservée"
+      }
+    },
+    {
+      "attempt": 19,
+      "status": 400,
+      "response": {
+        "error": "Réservation invalide ou chambre déjà réservée"
+      }
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 const net=require('node:net');
 let socket;
 function log(event){
+  if(process.env.BENCHMARK==='true')return;
   const message=JSON.stringify({service:'hotel-graphql',time:new Date().toISOString(),...event});
   console.log(message);
   if(!process.env.LOGSTASH_HOST)return;

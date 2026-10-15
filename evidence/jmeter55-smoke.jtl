@@ -1,0 +1,34 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1792029385977,57,login,200,,Connexion 1-1,text,true,,483,243,1,1,http://localhost:19601/auth/token,52,0,35
+1792029387936,293,create,201,,10 utilisateurs 1-1,text,true,,1527,1389,2,2,http://localhost:19601/api/reservations,293,0,4
+1792029388245,156,read,200,,10 utilisateurs 1-1,text,true,,1527,348,2,2,http://localhost:19601/api/reservations/14491,155,0,2
+1792029388208,340,create,201,,10 utilisateurs 1-2,text,true,,1527,1389,2,2,http://localhost:19601/api/reservations,339,0,2
+1792029388549,82,read,200,,10 utilisateurs 1-2,text,true,,1527,348,2,2,http://localhost:19601/api/reservations/14492,81,0,2
+1792029388402,285,update,200,,10 utilisateurs 1-1,text,true,,1527,1394,2,2,http://localhost:19601/api/reservations/14491,285,0,2
+1792029388688,101,delete,200,,10 utilisateurs 1-1,text,true,,330,370,2,2,http://localhost:19601/api/reservations/14491,101,0,2
+1792029388631,166,update,200,,10 utilisateurs 1-2,text,true,,1527,1394,1,1,http://localhost:19601/api/reservations/14492,165,0,2
+1792029388797,155,delete,200,,10 utilisateurs 1-2,text,true,,330,370,1,1,http://localhost:19601/api/reservations/14492,155,0,2
+1792029388961,152,create,201,,100 utilisateurs 2-1,text,true,,1527,1389,1,1,http://localhost:19601/api/reservations,151,0,4
+1792029389115,65,read,200,,100 utilisateurs 2-1,text,true,,1527,348,1,1,http://localhost:19601/api/reservations/14493,65,0,2
+1792029389181,110,update,200,,100 utilisateurs 2-1,text,true,,1527,1394,1,1,http://localhost:19601/api/reservations/14493,109,0,1
+1792029389291,52,delete,200,,100 utilisateurs 2-1,text,true,,330,370,1,1,http://localhost:19601/api/reservations/14493,52,0,3
+1792029389464,96,create,201,,100 utilisateurs 2-2,text,true,,1527,1389,1,1,http://localhost:19601/api/reservations,96,0,4
+1792029389561,28,read,200,,100 utilisateurs 2-2,text,true,,1527,348,1,1,http://localhost:19601/api/reservations/14494,27,0,2
+1792029389589,100,update,200,,100 utilisateurs 2-2,text,true,,1527,1394,1,1,http://localhost:19601/api/reservations/14494,100,0,3
+1792029389690,41,delete,200,,100 utilisateurs 2-2,text,true,,330,370,1,1,http://localhost:19601/api/reservations/14494,41,0,1
+1792029389761,64,create,201,,500 utilisateurs 3-1,text,true,,1527,1389,1,1,http://localhost:19601/api/reservations,63,0,1
+1792029389827,40,read,200,,500 utilisateurs 3-1,text,true,,1527,348,1,1,http://localhost:19601/api/reservations/14495,40,0,2
+1792029389868,168,update,200,,500 utilisateurs 3-1,text,true,,1527,1394,1,1,http://localhost:19601/api/reservations/14495,168,0,1
+1792029390038,54,delete,200,,500 utilisateurs 3-1,text,true,,330,370,1,1,http://localhost:19601/api/reservations/14495,53,0,3
+1792029390254,118,create,201,,500 utilisateurs 3-2,text,true,,1527,1389,1,1,http://localhost:19601/api/reservations,117,0,2
+1792029390373,57,read,200,,500 utilisateurs 3-2,text,true,,1527,348,1,1,http://localhost:19601/api/reservations/14496,56,0,2
+1792029390430,126,update,200,,500 utilisateurs 3-2,text,true,,1527,1394,1,1,http://localhost:19601/api/reservations/14496,126,0,2
+1792029390557,54,delete,200,,500 utilisateurs 3-2,text,true,,330,370,1,1,http://localhost:19601/api/reservations/14496,53,0,1
+1792029390622,134,create,201,,1000 utilisateurs 4-1,text,true,,1527,1389,1,1,http://localhost:19601/api/reservations,134,0,2
+1792029390758,102,read,200,,1000 utilisateurs 4-1,text,true,,1527,348,1,1,http://localhost:19601/api/reservations/14497,101,0,1
+1792029390860,175,update,200,,1000 utilisateurs 4-1,text,true,,1527,1394,1,1,http://localhost:19601/api/reservations/14497,175,0,2
+1792029391036,34,delete,200,,1000 utilisateurs 4-1,text,true,,330,370,1,1,http://localhost:19601/api/reservations/14497,33,0,1
+1792029391132,141,create,201,,1000 utilisateurs 4-2,text,true,,1527,1389,1,1,http://localhost:19601/api/reservations,141,0,3
+1792029391274,34,read,200,,1000 utilisateurs 4-2,text,true,,1527,348,1,1,http://localhost:19601/api/reservations/14498,34,0,2
+1792029391308,165,update,200,,1000 utilisateurs 4-2,text,true,,1527,1394,1,1,http://localhost:19601/api/reservations/14498,165,0,3
+1792029391474,73,delete,200,,1000 utilisateurs 4-2,text,true,,330,370,1,1,http://localhost:19601/api/reservations/14498,72,0,2

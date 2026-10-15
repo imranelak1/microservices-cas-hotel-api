@@ -1,0 +1,4938 @@
+{
+  "services": [
+    "hotel-graphql",
+    "hotel-grpc-api",
+    "hotel-soap-api",
+    "jaeger-query",
+    "hotel-rest-api"
+  ],
+  "traces": {
+    "hotel-graphql": [
+      {
+        "traceID": "9c7c25337ff728cc8324d8c1cbdaee6e",
+        "spans": [
+          {
+            "traceID": "9c7c25337ff728cc8324d8c1cbdaee6e",
+            "spanID": "ee05f34dd4034de3",
+            "operationName": "middleware - query",
+            "references": [
+              {
+                "refType": "CHILD_OF",
+                "traceID": "9c7c25337ff728cc8324d8c1cbdaee6e",
+                "spanID": "80526e62858a4fe1"
+              }
+            ],
+            "startTime": 1792029628090000,
+            "duration": 35,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "@opentelemetry/instrumentation-express"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "0.45.0"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/"
+              },
+              {
+                "key": "express.name",
+                "type": "string",
+                "value": "query"
+              },
+              {
+                "key": "express.type",
+                "type": "string",
+                "value": "middleware"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "internal"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          },
+          {
+            "traceID": "9c7c25337ff728cc8324d8c1cbdaee6e",
+            "spanID": "f6764f98e621eb88",
+            "operationName": "middleware - expressInit",
+            "references": [
+              {
+                "refType": "CHILD_OF",
+                "traceID": "9c7c25337ff728cc8324d8c1cbdaee6e",
+                "spanID": "80526e62858a4fe1"
+              }
+            ],
+            "startTime": 1792029628090000,
+            "duration": 52,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "@opentelemetry/instrumentation-express"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "0.45.0"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/"
+              },
+              {
+                "key": "express.name",
+                "type": "string",
+                "value": "expressInit"
+              },
+              {
+                "key": "express.type",
+                "type": "string",
+                "value": "middleware"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "internal"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          },
+          {
+            "traceID": "9c7c25337ff728cc8324d8c1cbdaee6e",
+            "spanID": "9111c5028b6b31f8",
+            "operationName": "request handler - /metrics",
+            "references": [
+              {
+                "refType": "CHILD_OF",
+                "traceID": "9c7c25337ff728cc8324d8c1cbdaee6e",
+                "spanID": "80526e62858a4fe1"
+              }
+            ],
+            "startTime": 1792029628090000,
+            "duration": 7,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "@opentelemetry/instrumentation-express"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "0.45.0"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/metrics"
+              },
+              {
+                "key": "express.name",
+                "type": "string",
+                "value": "/metrics"
+              },
+              {
+                "key": "express.type",
+                "type": "string",
+                "value": "request_handler"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "internal"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          },
+          {
+            "traceID": "9c7c25337ff728cc8324d8c1cbdaee6e",
+            "spanID": "80526e62858a4fe1",
+            "operationName": "GET /metrics",
+            "references": [],
+            "startTime": 1792029628090000,
+            "duration": 2743,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "@opentelemetry/instrumentation-http"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "0.55.0"
+              },
+              {
+                "key": "http.url",
+                "type": "string",
+                "value": "http://host.docker.internal:19603/metrics"
+              },
+              {
+                "key": "http.host",
+                "type": "string",
+                "value": "host.docker.internal:19603"
+              },
+              {
+                "key": "net.host.name",
+                "type": "string",
+                "value": "host.docker.internal"
+              },
+              {
+                "key": "http.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.scheme",
+                "type": "string",
+                "value": "http"
+              },
+              {
+                "key": "http.target",
+                "type": "string",
+                "value": "/metrics"
+              },
+              {
+                "key": "http.user_agent",
+                "type": "string",
+                "value": "Prometheus/2.42.0"
+              },
+              {
+                "key": "http.flavor",
+                "type": "string",
+                "value": "1.1"
+              },
+              {
+                "key": "net.transport",
+                "type": "string",
+                "value": "ip_tcp"
+              },
+              {
+                "key": "net.host.ip",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "net.host.port",
+                "type": "int64",
+                "value": 19603
+              },
+              {
+                "key": "net.peer.ip",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "net.peer.port",
+                "type": "int64",
+                "value": 51338
+              },
+              {
+                "key": "http.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "http.status_text",
+                "type": "string",
+                "value": "OK"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/metrics"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "hotel-graphql",
+            "tags": [
+              {
+                "key": "host.arch",
+                "type": "string",
+                "value": "amd64"
+              },
+              {
+                "key": "host.id",
+                "type": "string",
+                "value": "546b3a9a-d5ce-404d-9f9c-a5143cade4f3"
+              },
+              {
+                "key": "host.name",
+                "type": "string",
+                "value": "DESKTOP-M1SRB6S"
+              },
+              {
+                "key": "process.command",
+                "type": "string",
+                "value": "C:\\Users\\imrane\\Desktop\\lachguer\\microservices-cas-hotel-api\\graphql-api\\server.cjs"
+              },
+              {
+                "key": "process.command_args",
+                "type": "string",
+                "value": "[\"C:\\\\Program Files\\\\nodejs\\\\node.exe\",\"--max-old-space-size=160\",\"C:\\\\Users\\\\imrane\\\\Desktop\\\\lachguer\\\\microservices-cas-hotel-api\\\\graphql-api\\\\server.cjs\"]"
+              },
+              {
+                "key": "process.executable.name",
+                "type": "string",
+                "value": "C:\\Program Files\\nodejs\\node.exe"
+              },
+              {
+                "key": "process.executable.path",
+                "type": "string",
+                "value": "C:\\Program Files\\nodejs\\node.exe"
+              },
+              {
+                "key": "process.owner",
+                "type": "string",
+                "value": "imrane"
+              },
+              {
+                "key": "process.pid",
+                "type": "int64",
+                "value": 68664
+              },
+              {
+                "key": "process.runtime.description",
+                "type": "string",
+                "value": "Node.js"
+              },
+              {
+                "key": "process.runtime.name",
+                "type": "string",
+                "value": "nodejs"
+              },
+              {
+                "key": "process.runtime.version",
+                "type": "string",
+                "value": "22.21.0"
+              },
+              {
+                "key": "telemetry.sdk.language",
+                "type": "string",
+                "value": "nodejs"
+              },
+              {
+                "key": "telemetry.sdk.name",
+                "type": "string",
+                "value": "opentelemetry"
+              },
+              {
+                "key": "telemetry.sdk.version",
+                "type": "string",
+                "value": "1.28.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      },
+      {
+        "traceID": "f589d11e6e8acf652edfef6b1dedf0bb",
+        "spans": [
+          {
+            "traceID": "f589d11e6e8acf652edfef6b1dedf0bb",
+            "spanID": "c6fda7eb60732576",
+            "operationName": "middleware - query",
+            "references": [
+              {
+                "refType": "CHILD_OF",
+                "traceID": "f589d11e6e8acf652edfef6b1dedf0bb",
+                "spanID": "a388eb7329804a53"
+              }
+            ],
+            "startTime": 1792029643079000,
+            "duration": 39,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "@opentelemetry/instrumentation-express"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "0.45.0"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/"
+              },
+              {
+                "key": "express.name",
+                "type": "string",
+                "value": "query"
+              },
+              {
+                "key": "express.type",
+                "type": "string",
+                "value": "middleware"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "internal"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          },
+          {
+            "traceID": "f589d11e6e8acf652edfef6b1dedf0bb",
+            "spanID": "bcea16558f47a5db",
+            "operationName": "request handler - /metrics",
+            "references": [
+              {
+                "refType": "CHILD_OF",
+                "traceID": "f589d11e6e8acf652edfef6b1dedf0bb",
+                "spanID": "a388eb7329804a53"
+              }
+            ],
+            "startTime": 1792029643079000,
+            "duration": 5,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "@opentelemetry/instrumentation-express"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "0.45.0"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/metrics"
+              },
+              {
+                "key": "express.name",
+                "type": "string",
+                "value": "/metrics"
+              },
+              {
+                "key": "express.type",
+                "type": "string",
+                "value": "request_handler"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "internal"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          },
+          {
+            "traceID": "f589d11e6e8acf652edfef6b1dedf0bb",
+            "spanID": "480c3bddde6859ec",
+            "operationName": "middleware - expressInit",
+            "references": [
+              {
+                "refType": "CHILD_OF",
+                "traceID": "f589d11e6e8acf652edfef6b1dedf0bb",
+                "spanID": "a388eb7329804a53"
+              }
+            ],
+            "startTime": 1792029643079000,
+            "duration": 44,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "@opentelemetry/instrumentation-express"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "0.45.0"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/"
+              },
+              {
+                "key": "express.name",
+                "type": "string",
+                "value": "expressInit"
+              },
+              {
+                "key": "express.type",
+                "type": "string",
+                "value": "middleware"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "internal"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          },
+          {
+            "traceID": "f589d11e6e8acf652edfef6b1dedf0bb",
+            "spanID": "a388eb7329804a53",
+            "operationName": "GET /metrics",
+            "references": [],
+            "startTime": 1792029643078000,
+            "duration": 3008,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "@opentelemetry/instrumentation-http"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "0.55.0"
+              },
+              {
+                "key": "http.url",
+                "type": "string",
+                "value": "http://host.docker.internal:19603/metrics"
+              },
+              {
+                "key": "http.host",
+                "type": "string",
+                "value": "host.docker.internal:19603"
+              },
+              {
+                "key": "net.host.name",
+                "type": "string",
+                "value": "host.docker.internal"
+              },
+              {
+                "key": "http.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.scheme",
+                "type": "string",
+                "value": "http"
+              },
+              {
+                "key": "http.target",
+                "type": "string",
+                "value": "/metrics"
+              },
+              {
+                "key": "http.user_agent",
+                "type": "string",
+                "value": "Prometheus/2.42.0"
+              },
+              {
+                "key": "http.flavor",
+                "type": "string",
+                "value": "1.1"
+              },
+              {
+                "key": "net.transport",
+                "type": "string",
+                "value": "ip_tcp"
+              },
+              {
+                "key": "net.host.ip",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "net.host.port",
+                "type": "int64",
+                "value": 19603
+              },
+              {
+                "key": "net.peer.ip",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "net.peer.port",
+                "type": "int64",
+                "value": 52116
+              },
+              {
+                "key": "http.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "http.status_text",
+                "type": "string",
+                "value": "OK"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/metrics"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "hotel-graphql",
+            "tags": [
+              {
+                "key": "host.arch",
+                "type": "string",
+                "value": "amd64"
+              },
+              {
+                "key": "host.id",
+                "type": "string",
+                "value": "546b3a9a-d5ce-404d-9f9c-a5143cade4f3"
+              },
+              {
+                "key": "host.name",
+                "type": "string",
+                "value": "DESKTOP-M1SRB6S"
+              },
+              {
+                "key": "process.command",
+                "type": "string",
+                "value": "C:\\Users\\imrane\\Desktop\\lachguer\\microservices-cas-hotel-api\\graphql-api\\server.cjs"
+              },
+              {
+                "key": "process.command_args",
+                "type": "string",
+                "value": "[\"C:\\\\Program Files\\\\nodejs\\\\node.exe\",\"--max-old-space-size=160\",\"C:\\\\Users\\\\imrane\\\\Desktop\\\\lachguer\\\\microservices-cas-hotel-api\\\\graphql-api\\\\server.cjs\"]"
+              },
+              {
+                "key": "process.executable.name",
+                "type": "string",
+                "value": "C:\\Program Files\\nodejs\\node.exe"
+              },
+              {
+                "key": "process.executable.path",
+                "type": "string",
+                "value": "C:\\Program Files\\nodejs\\node.exe"
+              },
+              {
+                "key": "process.owner",
+                "type": "string",
+                "value": "imrane"
+              },
+              {
+                "key": "process.pid",
+                "type": "int64",
+                "value": 68664
+              },
+              {
+                "key": "process.runtime.description",
+                "type": "string",
+                "value": "Node.js"
+              },
+              {
+                "key": "process.runtime.name",
+                "type": "string",
+                "value": "nodejs"
+              },
+              {
+                "key": "process.runtime.version",
+                "type": "string",
+                "value": "22.21.0"
+              },
+              {
+                "key": "telemetry.sdk.language",
+                "type": "string",
+                "value": "nodejs"
+              },
+              {
+                "key": "telemetry.sdk.name",
+                "type": "string",
+                "value": "opentelemetry"
+              },
+              {
+                "key": "telemetry.sdk.version",
+                "type": "string",
+                "value": "1.28.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      },
+      {
+        "traceID": "4bb60104c37b00ace1cc10d24c751cdd",
+        "spans": [
+          {
+            "traceID": "4bb60104c37b00ace1cc10d24c751cdd",
+            "spanID": "70aec1ba3d181803",
+            "operationName": "middleware - query",
+            "references": [
+              {
+                "refType": "CHILD_OF",
+                "traceID": "4bb60104c37b00ace1cc10d24c751cdd",
+                "spanID": "173da449de8c468d"
+              }
+            ],
+            "startTime": 1792029658044000,
+            "duration": 47,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "@opentelemetry/instrumentation-express"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "0.45.0"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/"
+              },
+              {
+                "key": "express.name",
+                "type": "string",
+                "value": "query"
+              },
+              {
+                "key": "express.type",
+                "type": "string",
+                "value": "middleware"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "internal"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          },
+          {
+            "traceID": "4bb60104c37b00ace1cc10d24c751cdd",
+            "spanID": "fe9fa766458acf0c",
+            "operationName": "middleware - expressInit",
+            "references": [
+              {
+                "refType": "CHILD_OF",
+                "traceID": "4bb60104c37b00ace1cc10d24c751cdd",
+                "spanID": "173da449de8c468d"
+              }
+            ],
+            "startTime": 1792029658044000,
+            "duration": 64,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "@opentelemetry/instrumentation-express"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "0.45.0"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/"
+              },
+              {
+                "key": "express.name",
+                "type": "string",
+                "value": "expressInit"
+              },
+              {
+                "key": "express.type",
+                "type": "string",
+                "value": "middleware"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "internal"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          },
+          {
+            "traceID": "4bb60104c37b00ace1cc10d24c751cdd",
+            "spanID": "4a35d9e2a8ccdf4e",
+            "operationName": "request handler - /metrics",
+            "references": [
+              {
+                "refType": "CHILD_OF",
+                "traceID": "4bb60104c37b00ace1cc10d24c751cdd",
+                "spanID": "173da449de8c468d"
+              }
+            ],
+            "startTime": 1792029658044000,
+            "duration": 8,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "@opentelemetry/instrumentation-express"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "0.45.0"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/metrics"
+              },
+              {
+                "key": "express.name",
+                "type": "string",
+                "value": "/metrics"
+              },
+              {
+                "key": "express.type",
+                "type": "string",
+                "value": "request_handler"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "internal"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          },
+          {
+            "traceID": "4bb60104c37b00ace1cc10d24c751cdd",
+            "spanID": "173da449de8c468d",
+            "operationName": "GET /metrics",
+            "references": [],
+            "startTime": 1792029658044000,
+            "duration": 3097,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "@opentelemetry/instrumentation-http"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "0.55.0"
+              },
+              {
+                "key": "http.url",
+                "type": "string",
+                "value": "http://host.docker.internal:19603/metrics"
+              },
+              {
+                "key": "http.host",
+                "type": "string",
+                "value": "host.docker.internal:19603"
+              },
+              {
+                "key": "net.host.name",
+                "type": "string",
+                "value": "host.docker.internal"
+              },
+              {
+                "key": "http.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.scheme",
+                "type": "string",
+                "value": "http"
+              },
+              {
+                "key": "http.target",
+                "type": "string",
+                "value": "/metrics"
+              },
+              {
+                "key": "http.user_agent",
+                "type": "string",
+                "value": "Prometheus/2.42.0"
+              },
+              {
+                "key": "http.flavor",
+                "type": "string",
+                "value": "1.1"
+              },
+              {
+                "key": "net.transport",
+                "type": "string",
+                "value": "ip_tcp"
+              },
+              {
+                "key": "net.host.ip",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "net.host.port",
+                "type": "int64",
+                "value": 19603
+              },
+              {
+                "key": "net.peer.ip",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "net.peer.port",
+                "type": "int64",
+                "value": 56021
+              },
+              {
+                "key": "http.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "http.status_text",
+                "type": "string",
+                "value": "OK"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/metrics"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "hotel-graphql",
+            "tags": [
+              {
+                "key": "host.arch",
+                "type": "string",
+                "value": "amd64"
+              },
+              {
+                "key": "host.id",
+                "type": "string",
+                "value": "546b3a9a-d5ce-404d-9f9c-a5143cade4f3"
+              },
+              {
+                "key": "host.name",
+                "type": "string",
+                "value": "DESKTOP-M1SRB6S"
+              },
+              {
+                "key": "process.command",
+                "type": "string",
+                "value": "C:\\Users\\imrane\\Desktop\\lachguer\\microservices-cas-hotel-api\\graphql-api\\server.cjs"
+              },
+              {
+                "key": "process.command_args",
+                "type": "string",
+                "value": "[\"C:\\\\Program Files\\\\nodejs\\\\node.exe\",\"--max-old-space-size=160\",\"C:\\\\Users\\\\imrane\\\\Desktop\\\\lachguer\\\\microservices-cas-hotel-api\\\\graphql-api\\\\server.cjs\"]"
+              },
+              {
+                "key": "process.executable.name",
+                "type": "string",
+                "value": "C:\\Program Files\\nodejs\\node.exe"
+              },
+              {
+                "key": "process.executable.path",
+                "type": "string",
+                "value": "C:\\Program Files\\nodejs\\node.exe"
+              },
+              {
+                "key": "process.owner",
+                "type": "string",
+                "value": "imrane"
+              },
+              {
+                "key": "process.pid",
+                "type": "int64",
+                "value": 68664
+              },
+              {
+                "key": "process.runtime.description",
+                "type": "string",
+                "value": "Node.js"
+              },
+              {
+                "key": "process.runtime.name",
+                "type": "string",
+                "value": "nodejs"
+              },
+              {
+                "key": "process.runtime.version",
+                "type": "string",
+                "value": "22.21.0"
+              },
+              {
+                "key": "telemetry.sdk.language",
+                "type": "string",
+                "value": "nodejs"
+              },
+              {
+                "key": "telemetry.sdk.name",
+                "type": "string",
+                "value": "opentelemetry"
+              },
+              {
+                "key": "telemetry.sdk.version",
+                "type": "string",
+                "value": "1.28.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      },
+      {
+        "traceID": "8e478436ba32746193243f4e38861823",
+        "spans": [
+          {
+            "traceID": "8e478436ba32746193243f4e38861823",
+            "spanID": "ca5481c0f1df18ca",
+            "operationName": "middleware - expressInit",
+            "references": [
+              {
+                "refType": "CHILD_OF",
+                "traceID": "8e478436ba32746193243f4e38861823",
+                "spanID": "91f5f0e604de407b"
+              }
+            ],
+            "startTime": 1792029673043000,
+            "duration": 54,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "@opentelemetry/instrumentation-express"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "0.45.0"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/"
+              },
+              {
+                "key": "express.name",
+                "type": "string",
+                "value": "expressInit"
+              },
+              {
+                "key": "express.type",
+                "type": "string",
+                "value": "middleware"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "internal"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          },
+          {
+            "traceID": "8e478436ba32746193243f4e38861823",
+            "spanID": "b27a5313d1416d25",
+            "operationName": "request handler - /metrics",
+            "references": [
+              {
+                "refType": "CHILD_OF",
+                "traceID": "8e478436ba32746193243f4e38861823",
+                "spanID": "91f5f0e604de407b"
+              }
+            ],
+            "startTime": 1792029673043000,
+            "duration": 7,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "@opentelemetry/instrumentation-express"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "0.45.0"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/metrics"
+              },
+              {
+                "key": "express.name",
+                "type": "string",
+                "value": "/metrics"
+              },
+              {
+                "key": "express.type",
+                "type": "string",
+                "value": "request_handler"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "internal"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          },
+          {
+            "traceID": "8e478436ba32746193243f4e38861823",
+            "spanID": "91f5f0e604de407b",
+            "operationName": "GET /metrics",
+            "references": [],
+            "startTime": 1792029673043000,
+            "duration": 3011,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "@opentelemetry/instrumentation-http"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "0.55.0"
+              },
+              {
+                "key": "http.url",
+                "type": "string",
+                "value": "http://host.docker.internal:19603/metrics"
+              },
+              {
+                "key": "http.host",
+                "type": "string",
+                "value": "host.docker.internal:19603"
+              },
+              {
+                "key": "net.host.name",
+                "type": "string",
+                "value": "host.docker.internal"
+              },
+              {
+                "key": "http.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.scheme",
+                "type": "string",
+                "value": "http"
+              },
+              {
+                "key": "http.target",
+                "type": "string",
+                "value": "/metrics"
+              },
+              {
+                "key": "http.user_agent",
+                "type": "string",
+                "value": "Prometheus/2.42.0"
+              },
+              {
+                "key": "http.flavor",
+                "type": "string",
+                "value": "1.1"
+              },
+              {
+                "key": "net.transport",
+                "type": "string",
+                "value": "ip_tcp"
+              },
+              {
+                "key": "net.host.ip",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "net.host.port",
+                "type": "int64",
+                "value": 19603
+              },
+              {
+                "key": "net.peer.ip",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "net.peer.port",
+                "type": "int64",
+                "value": 59130
+              },
+              {
+                "key": "http.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "http.status_text",
+                "type": "string",
+                "value": "OK"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/metrics"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          },
+          {
+            "traceID": "8e478436ba32746193243f4e38861823",
+            "spanID": "74914fbe5eb78025",
+            "operationName": "middleware - query",
+            "references": [
+              {
+                "refType": "CHILD_OF",
+                "traceID": "8e478436ba32746193243f4e38861823",
+                "spanID": "91f5f0e604de407b"
+              }
+            ],
+            "startTime": 1792029673043000,
+            "duration": 33,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "@opentelemetry/instrumentation-express"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "0.45.0"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/"
+              },
+              {
+                "key": "express.name",
+                "type": "string",
+                "value": "query"
+              },
+              {
+                "key": "express.type",
+                "type": "string",
+                "value": "middleware"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "internal"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "hotel-graphql",
+            "tags": [
+              {
+                "key": "host.arch",
+                "type": "string",
+                "value": "amd64"
+              },
+              {
+                "key": "host.id",
+                "type": "string",
+                "value": "546b3a9a-d5ce-404d-9f9c-a5143cade4f3"
+              },
+              {
+                "key": "host.name",
+                "type": "string",
+                "value": "DESKTOP-M1SRB6S"
+              },
+              {
+                "key": "process.command",
+                "type": "string",
+                "value": "C:\\Users\\imrane\\Desktop\\lachguer\\microservices-cas-hotel-api\\graphql-api\\server.cjs"
+              },
+              {
+                "key": "process.command_args",
+                "type": "string",
+                "value": "[\"C:\\\\Program Files\\\\nodejs\\\\node.exe\",\"--max-old-space-size=160\",\"C:\\\\Users\\\\imrane\\\\Desktop\\\\lachguer\\\\microservices-cas-hotel-api\\\\graphql-api\\\\server.cjs\"]"
+              },
+              {
+                "key": "process.executable.name",
+                "type": "string",
+                "value": "C:\\Program Files\\nodejs\\node.exe"
+              },
+              {
+                "key": "process.executable.path",
+                "type": "string",
+                "value": "C:\\Program Files\\nodejs\\node.exe"
+              },
+              {
+                "key": "process.owner",
+                "type": "string",
+                "value": "imrane"
+              },
+              {
+                "key": "process.pid",
+                "type": "int64",
+                "value": 68664
+              },
+              {
+                "key": "process.runtime.description",
+                "type": "string",
+                "value": "Node.js"
+              },
+              {
+                "key": "process.runtime.name",
+                "type": "string",
+                "value": "nodejs"
+              },
+              {
+                "key": "process.runtime.version",
+                "type": "string",
+                "value": "22.21.0"
+              },
+              {
+                "key": "telemetry.sdk.language",
+                "type": "string",
+                "value": "nodejs"
+              },
+              {
+                "key": "telemetry.sdk.name",
+                "type": "string",
+                "value": "opentelemetry"
+              },
+              {
+                "key": "telemetry.sdk.version",
+                "type": "string",
+                "value": "1.28.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      },
+      {
+        "traceID": "ff40c6d2ff198ecc760c66ec22f2f757",
+        "spans": [
+          {
+            "traceID": "ff40c6d2ff198ecc760c66ec22f2f757",
+            "spanID": "d7eea30665454320",
+            "operationName": "middleware - query",
+            "references": [
+              {
+                "refType": "CHILD_OF",
+                "traceID": "ff40c6d2ff198ecc760c66ec22f2f757",
+                "spanID": "f04655266662108e"
+              }
+            ],
+            "startTime": 1792029688041000,
+            "duration": 26,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "@opentelemetry/instrumentation-express"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "0.45.0"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/"
+              },
+              {
+                "key": "express.name",
+                "type": "string",
+                "value": "query"
+              },
+              {
+                "key": "express.type",
+                "type": "string",
+                "value": "middleware"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "internal"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          },
+          {
+            "traceID": "ff40c6d2ff198ecc760c66ec22f2f757",
+            "spanID": "4c7350afe5ec4e88",
+            "operationName": "request handler - /metrics",
+            "references": [
+              {
+                "refType": "CHILD_OF",
+                "traceID": "ff40c6d2ff198ecc760c66ec22f2f757",
+                "spanID": "f04655266662108e"
+              }
+            ],
+            "startTime": 1792029688041000,
+            "duration": 5,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "@opentelemetry/instrumentation-express"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "0.45.0"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/metrics"
+              },
+              {
+                "key": "express.name",
+                "type": "string",
+                "value": "/metrics"
+              },
+              {
+                "key": "express.type",
+                "type": "string",
+                "value": "request_handler"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "internal"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          },
+          {
+            "traceID": "ff40c6d2ff198ecc760c66ec22f2f757",
+            "spanID": "f04655266662108e",
+            "operationName": "GET /metrics",
+            "references": [],
+            "startTime": 1792029688040000,
+            "duration": 3237,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "@opentelemetry/instrumentation-http"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "0.55.0"
+              },
+              {
+                "key": "http.url",
+                "type": "string",
+                "value": "http://host.docker.internal:19603/metrics"
+              },
+              {
+                "key": "http.host",
+                "type": "string",
+                "value": "host.docker.internal:19603"
+              },
+              {
+                "key": "net.host.name",
+                "type": "string",
+                "value": "host.docker.internal"
+              },
+              {
+                "key": "http.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.scheme",
+                "type": "string",
+                "value": "http"
+              },
+              {
+                "key": "http.target",
+                "type": "string",
+                "value": "/metrics"
+              },
+              {
+                "key": "http.user_agent",
+                "type": "string",
+                "value": "Prometheus/2.42.0"
+              },
+              {
+                "key": "http.flavor",
+                "type": "string",
+                "value": "1.1"
+              },
+              {
+                "key": "net.transport",
+                "type": "string",
+                "value": "ip_tcp"
+              },
+              {
+                "key": "net.host.ip",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "net.host.port",
+                "type": "int64",
+                "value": 19603
+              },
+              {
+                "key": "net.peer.ip",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "net.peer.port",
+                "type": "int64",
+                "value": 53901
+              },
+              {
+                "key": "http.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "http.status_text",
+                "type": "string",
+                "value": "OK"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/metrics"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          },
+          {
+            "traceID": "ff40c6d2ff198ecc760c66ec22f2f757",
+            "spanID": "f6447e89edcf94fd",
+            "operationName": "middleware - expressInit",
+            "references": [
+              {
+                "refType": "CHILD_OF",
+                "traceID": "ff40c6d2ff198ecc760c66ec22f2f757",
+                "spanID": "f04655266662108e"
+              }
+            ],
+            "startTime": 1792029688041000,
+            "duration": 42,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "@opentelemetry/instrumentation-express"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "0.45.0"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/"
+              },
+              {
+                "key": "express.name",
+                "type": "string",
+                "value": "expressInit"
+              },
+              {
+                "key": "express.type",
+                "type": "string",
+                "value": "middleware"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "internal"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "hotel-graphql",
+            "tags": [
+              {
+                "key": "host.arch",
+                "type": "string",
+                "value": "amd64"
+              },
+              {
+                "key": "host.id",
+                "type": "string",
+                "value": "546b3a9a-d5ce-404d-9f9c-a5143cade4f3"
+              },
+              {
+                "key": "host.name",
+                "type": "string",
+                "value": "DESKTOP-M1SRB6S"
+              },
+              {
+                "key": "process.command",
+                "type": "string",
+                "value": "C:\\Users\\imrane\\Desktop\\lachguer\\microservices-cas-hotel-api\\graphql-api\\server.cjs"
+              },
+              {
+                "key": "process.command_args",
+                "type": "string",
+                "value": "[\"C:\\\\Program Files\\\\nodejs\\\\node.exe\",\"--max-old-space-size=160\",\"C:\\\\Users\\\\imrane\\\\Desktop\\\\lachguer\\\\microservices-cas-hotel-api\\\\graphql-api\\\\server.cjs\"]"
+              },
+              {
+                "key": "process.executable.name",
+                "type": "string",
+                "value": "C:\\Program Files\\nodejs\\node.exe"
+              },
+              {
+                "key": "process.executable.path",
+                "type": "string",
+                "value": "C:\\Program Files\\nodejs\\node.exe"
+              },
+              {
+                "key": "process.owner",
+                "type": "string",
+                "value": "imrane"
+              },
+              {
+                "key": "process.pid",
+                "type": "int64",
+                "value": 68664
+              },
+              {
+                "key": "process.runtime.description",
+                "type": "string",
+                "value": "Node.js"
+              },
+              {
+                "key": "process.runtime.name",
+                "type": "string",
+                "value": "nodejs"
+              },
+              {
+                "key": "process.runtime.version",
+                "type": "string",
+                "value": "22.21.0"
+              },
+              {
+                "key": "telemetry.sdk.language",
+                "type": "string",
+                "value": "nodejs"
+              },
+              {
+                "key": "telemetry.sdk.name",
+                "type": "string",
+                "value": "opentelemetry"
+              },
+              {
+                "key": "telemetry.sdk.version",
+                "type": "string",
+                "value": "1.28.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      }
+    ],
+    "hotel-grpc-api": [
+      {
+        "traceID": "467fc0662bd6e0e726b33daa3e22f9c9",
+        "spans": [
+          {
+            "traceID": "467fc0662bd6e0e726b33daa3e22f9c9",
+            "spanID": "9775927b5fc79098",
+            "operationName": "GET /actuator/prometheus",
+            "references": [],
+            "startTime": 1792029634086385,
+            "duration": 484663,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "io.opentelemetry.tomcat-10.0"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "2.9.0-alpha"
+              },
+              {
+                "key": "http.response.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "thread.id",
+                "type": "int64",
+                "value": 29
+              },
+              {
+                "key": "server.port",
+                "type": "int64",
+                "value": 19604
+              },
+              {
+                "key": "http.request.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "server.address",
+                "type": "string",
+                "value": "host.docker.internal"
+              },
+              {
+                "key": "client.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "network.peer.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "url.path",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "url.scheme",
+                "type": "string",
+                "value": "http"
+              },
+              {
+                "key": "thread.name",
+                "type": "string",
+                "value": "http-nio-19604-exec-2"
+              },
+              {
+                "key": "network.peer.port",
+                "type": "int64",
+                "value": 49472
+              },
+              {
+                "key": "network.protocol.version",
+                "type": "string",
+                "value": "1.1"
+              },
+              {
+                "key": "user_agent.original",
+                "type": "string",
+                "value": "Prometheus/2.42.0"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "hotel-grpc-api",
+            "tags": [
+              {
+                "key": "host.arch",
+                "type": "string",
+                "value": "amd64"
+              },
+              {
+                "key": "host.name",
+                "type": "string",
+                "value": "DESKTOP-M1SRB6S"
+              },
+              {
+                "key": "os.description",
+                "type": "string",
+                "value": "Windows 11 10.0"
+              },
+              {
+                "key": "os.type",
+                "type": "string",
+                "value": "windows"
+              },
+              {
+                "key": "process.command_line",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe -Xmx160m -XX:MaxMetaspaceSize=192m -javaagent:C:\\Users\\imrane\\Desktop\\lachguer\\.tools\\course7\\protocols\\opentelemetry-javaagent-2.9.0.jar grpc-api/target/grpc-api-1.0.0.jar --server.port=19604 --spring.profiles.active=observability --logging.level.root=WARN --logging.level.ma.imrane.hotel=INFO"
+              },
+              {
+                "key": "process.executable.path",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe"
+              },
+              {
+                "key": "process.pid",
+                "type": "int64",
+                "value": 28976
+              },
+              {
+                "key": "process.runtime.description",
+                "type": "string",
+                "value": "Microsoft OpenJDK 64-Bit Server VM 17.0.16+8-LTS"
+              },
+              {
+                "key": "process.runtime.name",
+                "type": "string",
+                "value": "OpenJDK Runtime Environment"
+              },
+              {
+                "key": "process.runtime.version",
+                "type": "string",
+                "value": "17.0.16+8-LTS"
+              },
+              {
+                "key": "service.instance.id",
+                "type": "string",
+                "value": "8fe69f49-8e48-4424-846a-6fa72b7e7e52"
+              },
+              {
+                "key": "service.version",
+                "type": "string",
+                "value": "1.0.0"
+              },
+              {
+                "key": "telemetry.distro.name",
+                "type": "string",
+                "value": "opentelemetry-java-instrumentation"
+              },
+              {
+                "key": "telemetry.distro.version",
+                "type": "string",
+                "value": "2.9.0"
+              },
+              {
+                "key": "telemetry.sdk.language",
+                "type": "string",
+                "value": "java"
+              },
+              {
+                "key": "telemetry.sdk.name",
+                "type": "string",
+                "value": "opentelemetry"
+              },
+              {
+                "key": "telemetry.sdk.version",
+                "type": "string",
+                "value": "1.43.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      },
+      {
+        "traceID": "37b03bd3aa692e413da406d316b5f162",
+        "spans": [
+          {
+            "traceID": "37b03bd3aa692e413da406d316b5f162",
+            "spanID": "2747950bc5fc5915",
+            "operationName": "GET /actuator/prometheus",
+            "references": [],
+            "startTime": 1792029649076923,
+            "duration": 219949,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "io.opentelemetry.tomcat-10.0"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "2.9.0-alpha"
+              },
+              {
+                "key": "http.response.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "thread.id",
+                "type": "int64",
+                "value": 34
+              },
+              {
+                "key": "server.port",
+                "type": "int64",
+                "value": 19604
+              },
+              {
+                "key": "http.request.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "server.address",
+                "type": "string",
+                "value": "host.docker.internal"
+              },
+              {
+                "key": "client.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "network.peer.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "url.path",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "url.scheme",
+                "type": "string",
+                "value": "http"
+              },
+              {
+                "key": "thread.name",
+                "type": "string",
+                "value": "http-nio-19604-exec-7"
+              },
+              {
+                "key": "network.peer.port",
+                "type": "int64",
+                "value": 49472
+              },
+              {
+                "key": "network.protocol.version",
+                "type": "string",
+                "value": "1.1"
+              },
+              {
+                "key": "user_agent.original",
+                "type": "string",
+                "value": "Prometheus/2.42.0"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "hotel-grpc-api",
+            "tags": [
+              {
+                "key": "host.arch",
+                "type": "string",
+                "value": "amd64"
+              },
+              {
+                "key": "host.name",
+                "type": "string",
+                "value": "DESKTOP-M1SRB6S"
+              },
+              {
+                "key": "os.description",
+                "type": "string",
+                "value": "Windows 11 10.0"
+              },
+              {
+                "key": "os.type",
+                "type": "string",
+                "value": "windows"
+              },
+              {
+                "key": "process.command_line",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe -Xmx160m -XX:MaxMetaspaceSize=192m -javaagent:C:\\Users\\imrane\\Desktop\\lachguer\\.tools\\course7\\protocols\\opentelemetry-javaagent-2.9.0.jar grpc-api/target/grpc-api-1.0.0.jar --server.port=19604 --spring.profiles.active=observability --logging.level.root=WARN --logging.level.ma.imrane.hotel=INFO"
+              },
+              {
+                "key": "process.executable.path",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe"
+              },
+              {
+                "key": "process.pid",
+                "type": "int64",
+                "value": 28976
+              },
+              {
+                "key": "process.runtime.description",
+                "type": "string",
+                "value": "Microsoft OpenJDK 64-Bit Server VM 17.0.16+8-LTS"
+              },
+              {
+                "key": "process.runtime.name",
+                "type": "string",
+                "value": "OpenJDK Runtime Environment"
+              },
+              {
+                "key": "process.runtime.version",
+                "type": "string",
+                "value": "17.0.16+8-LTS"
+              },
+              {
+                "key": "service.instance.id",
+                "type": "string",
+                "value": "8fe69f49-8e48-4424-846a-6fa72b7e7e52"
+              },
+              {
+                "key": "service.version",
+                "type": "string",
+                "value": "1.0.0"
+              },
+              {
+                "key": "telemetry.distro.name",
+                "type": "string",
+                "value": "opentelemetry-java-instrumentation"
+              },
+              {
+                "key": "telemetry.distro.version",
+                "type": "string",
+                "value": "2.9.0"
+              },
+              {
+                "key": "telemetry.sdk.language",
+                "type": "string",
+                "value": "java"
+              },
+              {
+                "key": "telemetry.sdk.name",
+                "type": "string",
+                "value": "opentelemetry"
+              },
+              {
+                "key": "telemetry.sdk.version",
+                "type": "string",
+                "value": "1.43.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      },
+      {
+        "traceID": "8cf6272f13b77efb389fe4367cb57bb7",
+        "spans": [
+          {
+            "traceID": "8cf6272f13b77efb389fe4367cb57bb7",
+            "spanID": "256a27ad63f64e39",
+            "operationName": "GET /actuator/prometheus",
+            "references": [],
+            "startTime": 1792029664074937,
+            "duration": 186970,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "io.opentelemetry.tomcat-10.0"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "2.9.0-alpha"
+              },
+              {
+                "key": "http.response.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "thread.id",
+                "type": "int64",
+                "value": 35
+              },
+              {
+                "key": "server.port",
+                "type": "int64",
+                "value": 19604
+              },
+              {
+                "key": "http.request.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "server.address",
+                "type": "string",
+                "value": "host.docker.internal"
+              },
+              {
+                "key": "client.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "network.peer.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "url.path",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "url.scheme",
+                "type": "string",
+                "value": "http"
+              },
+              {
+                "key": "thread.name",
+                "type": "string",
+                "value": "http-nio-19604-exec-8"
+              },
+              {
+                "key": "network.peer.port",
+                "type": "int64",
+                "value": 49472
+              },
+              {
+                "key": "network.protocol.version",
+                "type": "string",
+                "value": "1.1"
+              },
+              {
+                "key": "user_agent.original",
+                "type": "string",
+                "value": "Prometheus/2.42.0"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "hotel-grpc-api",
+            "tags": [
+              {
+                "key": "host.arch",
+                "type": "string",
+                "value": "amd64"
+              },
+              {
+                "key": "host.name",
+                "type": "string",
+                "value": "DESKTOP-M1SRB6S"
+              },
+              {
+                "key": "os.description",
+                "type": "string",
+                "value": "Windows 11 10.0"
+              },
+              {
+                "key": "os.type",
+                "type": "string",
+                "value": "windows"
+              },
+              {
+                "key": "process.command_line",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe -Xmx160m -XX:MaxMetaspaceSize=192m -javaagent:C:\\Users\\imrane\\Desktop\\lachguer\\.tools\\course7\\protocols\\opentelemetry-javaagent-2.9.0.jar grpc-api/target/grpc-api-1.0.0.jar --server.port=19604 --spring.profiles.active=observability --logging.level.root=WARN --logging.level.ma.imrane.hotel=INFO"
+              },
+              {
+                "key": "process.executable.path",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe"
+              },
+              {
+                "key": "process.pid",
+                "type": "int64",
+                "value": 28976
+              },
+              {
+                "key": "process.runtime.description",
+                "type": "string",
+                "value": "Microsoft OpenJDK 64-Bit Server VM 17.0.16+8-LTS"
+              },
+              {
+                "key": "process.runtime.name",
+                "type": "string",
+                "value": "OpenJDK Runtime Environment"
+              },
+              {
+                "key": "process.runtime.version",
+                "type": "string",
+                "value": "17.0.16+8-LTS"
+              },
+              {
+                "key": "service.instance.id",
+                "type": "string",
+                "value": "8fe69f49-8e48-4424-846a-6fa72b7e7e52"
+              },
+              {
+                "key": "service.version",
+                "type": "string",
+                "value": "1.0.0"
+              },
+              {
+                "key": "telemetry.distro.name",
+                "type": "string",
+                "value": "opentelemetry-java-instrumentation"
+              },
+              {
+                "key": "telemetry.distro.version",
+                "type": "string",
+                "value": "2.9.0"
+              },
+              {
+                "key": "telemetry.sdk.language",
+                "type": "string",
+                "value": "java"
+              },
+              {
+                "key": "telemetry.sdk.name",
+                "type": "string",
+                "value": "opentelemetry"
+              },
+              {
+                "key": "telemetry.sdk.version",
+                "type": "string",
+                "value": "1.43.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      },
+      {
+        "traceID": "963bddb49dc98385336a0141d0ee1acc",
+        "spans": [
+          {
+            "traceID": "963bddb49dc98385336a0141d0ee1acc",
+            "spanID": "ad352390d0232ba8",
+            "operationName": "GET /actuator/prometheus",
+            "references": [],
+            "startTime": 1792029679074546,
+            "duration": 222362,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "io.opentelemetry.tomcat-10.0"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "2.9.0-alpha"
+              },
+              {
+                "key": "http.response.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "thread.id",
+                "type": "int64",
+                "value": 32
+              },
+              {
+                "key": "server.port",
+                "type": "int64",
+                "value": 19604
+              },
+              {
+                "key": "http.request.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "server.address",
+                "type": "string",
+                "value": "host.docker.internal"
+              },
+              {
+                "key": "client.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "network.peer.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "url.path",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "url.scheme",
+                "type": "string",
+                "value": "http"
+              },
+              {
+                "key": "thread.name",
+                "type": "string",
+                "value": "http-nio-19604-exec-5"
+              },
+              {
+                "key": "network.peer.port",
+                "type": "int64",
+                "value": 49472
+              },
+              {
+                "key": "network.protocol.version",
+                "type": "string",
+                "value": "1.1"
+              },
+              {
+                "key": "user_agent.original",
+                "type": "string",
+                "value": "Prometheus/2.42.0"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "hotel-grpc-api",
+            "tags": [
+              {
+                "key": "host.arch",
+                "type": "string",
+                "value": "amd64"
+              },
+              {
+                "key": "host.name",
+                "type": "string",
+                "value": "DESKTOP-M1SRB6S"
+              },
+              {
+                "key": "os.description",
+                "type": "string",
+                "value": "Windows 11 10.0"
+              },
+              {
+                "key": "os.type",
+                "type": "string",
+                "value": "windows"
+              },
+              {
+                "key": "process.command_line",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe -Xmx160m -XX:MaxMetaspaceSize=192m -javaagent:C:\\Users\\imrane\\Desktop\\lachguer\\.tools\\course7\\protocols\\opentelemetry-javaagent-2.9.0.jar grpc-api/target/grpc-api-1.0.0.jar --server.port=19604 --spring.profiles.active=observability --logging.level.root=WARN --logging.level.ma.imrane.hotel=INFO"
+              },
+              {
+                "key": "process.executable.path",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe"
+              },
+              {
+                "key": "process.pid",
+                "type": "int64",
+                "value": 28976
+              },
+              {
+                "key": "process.runtime.description",
+                "type": "string",
+                "value": "Microsoft OpenJDK 64-Bit Server VM 17.0.16+8-LTS"
+              },
+              {
+                "key": "process.runtime.name",
+                "type": "string",
+                "value": "OpenJDK Runtime Environment"
+              },
+              {
+                "key": "process.runtime.version",
+                "type": "string",
+                "value": "17.0.16+8-LTS"
+              },
+              {
+                "key": "service.instance.id",
+                "type": "string",
+                "value": "8fe69f49-8e48-4424-846a-6fa72b7e7e52"
+              },
+              {
+                "key": "service.version",
+                "type": "string",
+                "value": "1.0.0"
+              },
+              {
+                "key": "telemetry.distro.name",
+                "type": "string",
+                "value": "opentelemetry-java-instrumentation"
+              },
+              {
+                "key": "telemetry.distro.version",
+                "type": "string",
+                "value": "2.9.0"
+              },
+              {
+                "key": "telemetry.sdk.language",
+                "type": "string",
+                "value": "java"
+              },
+              {
+                "key": "telemetry.sdk.name",
+                "type": "string",
+                "value": "opentelemetry"
+              },
+              {
+                "key": "telemetry.sdk.version",
+                "type": "string",
+                "value": "1.43.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      },
+      {
+        "traceID": "6e26b8265d0d16cc8e57e01781a19eca",
+        "spans": [
+          {
+            "traceID": "6e26b8265d0d16cc8e57e01781a19eca",
+            "spanID": "dca176a9c75c63c3",
+            "operationName": "GET /actuator/prometheus",
+            "references": [],
+            "startTime": 1792029694072947,
+            "duration": 224276,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "io.opentelemetry.tomcat-10.0"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "2.9.0-alpha"
+              },
+              {
+                "key": "http.response.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "thread.id",
+                "type": "int64",
+                "value": 33
+              },
+              {
+                "key": "server.port",
+                "type": "int64",
+                "value": 19604
+              },
+              {
+                "key": "http.request.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "server.address",
+                "type": "string",
+                "value": "host.docker.internal"
+              },
+              {
+                "key": "client.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "network.peer.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "url.path",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "url.scheme",
+                "type": "string",
+                "value": "http"
+              },
+              {
+                "key": "thread.name",
+                "type": "string",
+                "value": "http-nio-19604-exec-6"
+              },
+              {
+                "key": "network.peer.port",
+                "type": "int64",
+                "value": 49472
+              },
+              {
+                "key": "network.protocol.version",
+                "type": "string",
+                "value": "1.1"
+              },
+              {
+                "key": "user_agent.original",
+                "type": "string",
+                "value": "Prometheus/2.42.0"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "hotel-grpc-api",
+            "tags": [
+              {
+                "key": "host.arch",
+                "type": "string",
+                "value": "amd64"
+              },
+              {
+                "key": "host.name",
+                "type": "string",
+                "value": "DESKTOP-M1SRB6S"
+              },
+              {
+                "key": "os.description",
+                "type": "string",
+                "value": "Windows 11 10.0"
+              },
+              {
+                "key": "os.type",
+                "type": "string",
+                "value": "windows"
+              },
+              {
+                "key": "process.command_line",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe -Xmx160m -XX:MaxMetaspaceSize=192m -javaagent:C:\\Users\\imrane\\Desktop\\lachguer\\.tools\\course7\\protocols\\opentelemetry-javaagent-2.9.0.jar grpc-api/target/grpc-api-1.0.0.jar --server.port=19604 --spring.profiles.active=observability --logging.level.root=WARN --logging.level.ma.imrane.hotel=INFO"
+              },
+              {
+                "key": "process.executable.path",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe"
+              },
+              {
+                "key": "process.pid",
+                "type": "int64",
+                "value": 28976
+              },
+              {
+                "key": "process.runtime.description",
+                "type": "string",
+                "value": "Microsoft OpenJDK 64-Bit Server VM 17.0.16+8-LTS"
+              },
+              {
+                "key": "process.runtime.name",
+                "type": "string",
+                "value": "OpenJDK Runtime Environment"
+              },
+              {
+                "key": "process.runtime.version",
+                "type": "string",
+                "value": "17.0.16+8-LTS"
+              },
+              {
+                "key": "service.instance.id",
+                "type": "string",
+                "value": "8fe69f49-8e48-4424-846a-6fa72b7e7e52"
+              },
+              {
+                "key": "service.version",
+                "type": "string",
+                "value": "1.0.0"
+              },
+              {
+                "key": "telemetry.distro.name",
+                "type": "string",
+                "value": "opentelemetry-java-instrumentation"
+              },
+              {
+                "key": "telemetry.distro.version",
+                "type": "string",
+                "value": "2.9.0"
+              },
+              {
+                "key": "telemetry.sdk.language",
+                "type": "string",
+                "value": "java"
+              },
+              {
+                "key": "telemetry.sdk.name",
+                "type": "string",
+                "value": "opentelemetry"
+              },
+              {
+                "key": "telemetry.sdk.version",
+                "type": "string",
+                "value": "1.43.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      }
+    ],
+    "hotel-soap-api": [
+      {
+        "traceID": "6ed5b6bbcca74464b8c0418c4f94a48b",
+        "spans": [
+          {
+            "traceID": "6ed5b6bbcca74464b8c0418c4f94a48b",
+            "spanID": "cfc09973d242dc72",
+            "operationName": "GET /actuator/prometheus",
+            "references": [],
+            "startTime": 1792029636950912,
+            "duration": 348909,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "io.opentelemetry.tomcat-10.0"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "2.9.0-alpha"
+              },
+              {
+                "key": "http.response.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "thread.id",
+                "type": "int64",
+                "value": 37
+              },
+              {
+                "key": "server.port",
+                "type": "int64",
+                "value": 19602
+              },
+              {
+                "key": "http.request.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "server.address",
+                "type": "string",
+                "value": "host.docker.internal"
+              },
+              {
+                "key": "client.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "network.peer.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "url.path",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "url.scheme",
+                "type": "string",
+                "value": "http"
+              },
+              {
+                "key": "thread.name",
+                "type": "string",
+                "value": "http-nio-19602-exec-10"
+              },
+              {
+                "key": "network.peer.port",
+                "type": "int64",
+                "value": 49502
+              },
+              {
+                "key": "network.protocol.version",
+                "type": "string",
+                "value": "1.1"
+              },
+              {
+                "key": "user_agent.original",
+                "type": "string",
+                "value": "Prometheus/2.42.0"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "hotel-soap-api",
+            "tags": [
+              {
+                "key": "host.arch",
+                "type": "string",
+                "value": "amd64"
+              },
+              {
+                "key": "host.name",
+                "type": "string",
+                "value": "DESKTOP-M1SRB6S"
+              },
+              {
+                "key": "os.description",
+                "type": "string",
+                "value": "Windows 11 10.0"
+              },
+              {
+                "key": "os.type",
+                "type": "string",
+                "value": "windows"
+              },
+              {
+                "key": "process.command_line",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe -Xmx160m -XX:MaxMetaspaceSize=192m -javaagent:C:\\Users\\imrane\\Desktop\\lachguer\\.tools\\course7\\protocols\\opentelemetry-javaagent-2.9.0.jar soap-api/target/soap-api-1.0.0.jar --server.port=19602 --spring.profiles.active=observability --logging.level.root=WARN --logging.level.ma.imrane.hotel=INFO"
+              },
+              {
+                "key": "process.executable.path",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe"
+              },
+              {
+                "key": "process.pid",
+                "type": "int64",
+                "value": 63800
+              },
+              {
+                "key": "process.runtime.description",
+                "type": "string",
+                "value": "Microsoft OpenJDK 64-Bit Server VM 17.0.16+8-LTS"
+              },
+              {
+                "key": "process.runtime.name",
+                "type": "string",
+                "value": "OpenJDK Runtime Environment"
+              },
+              {
+                "key": "process.runtime.version",
+                "type": "string",
+                "value": "17.0.16+8-LTS"
+              },
+              {
+                "key": "service.instance.id",
+                "type": "string",
+                "value": "2d236717-3395-4504-83ad-55b36f316cfb"
+              },
+              {
+                "key": "service.version",
+                "type": "string",
+                "value": "1.0.0"
+              },
+              {
+                "key": "telemetry.distro.name",
+                "type": "string",
+                "value": "opentelemetry-java-instrumentation"
+              },
+              {
+                "key": "telemetry.distro.version",
+                "type": "string",
+                "value": "2.9.0"
+              },
+              {
+                "key": "telemetry.sdk.language",
+                "type": "string",
+                "value": "java"
+              },
+              {
+                "key": "telemetry.sdk.name",
+                "type": "string",
+                "value": "opentelemetry"
+              },
+              {
+                "key": "telemetry.sdk.version",
+                "type": "string",
+                "value": "1.43.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      },
+      {
+        "traceID": "2fb9f55c2282e2ad67e71843a4ba39f8",
+        "spans": [
+          {
+            "traceID": "2fb9f55c2282e2ad67e71843a4ba39f8",
+            "spanID": "c35429e2dbd403c5",
+            "operationName": "GET /actuator/prometheus",
+            "references": [],
+            "startTime": 1792029651992668,
+            "duration": 182660,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "io.opentelemetry.tomcat-10.0"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "2.9.0-alpha"
+              },
+              {
+                "key": "http.response.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "thread.id",
+                "type": "int64",
+                "value": 28
+              },
+              {
+                "key": "server.port",
+                "type": "int64",
+                "value": 19602
+              },
+              {
+                "key": "http.request.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "server.address",
+                "type": "string",
+                "value": "host.docker.internal"
+              },
+              {
+                "key": "client.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "network.peer.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "url.path",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "url.scheme",
+                "type": "string",
+                "value": "http"
+              },
+              {
+                "key": "thread.name",
+                "type": "string",
+                "value": "http-nio-19602-exec-1"
+              },
+              {
+                "key": "network.peer.port",
+                "type": "int64",
+                "value": 49502
+              },
+              {
+                "key": "network.protocol.version",
+                "type": "string",
+                "value": "1.1"
+              },
+              {
+                "key": "user_agent.original",
+                "type": "string",
+                "value": "Prometheus/2.42.0"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "hotel-soap-api",
+            "tags": [
+              {
+                "key": "host.arch",
+                "type": "string",
+                "value": "amd64"
+              },
+              {
+                "key": "host.name",
+                "type": "string",
+                "value": "DESKTOP-M1SRB6S"
+              },
+              {
+                "key": "os.description",
+                "type": "string",
+                "value": "Windows 11 10.0"
+              },
+              {
+                "key": "os.type",
+                "type": "string",
+                "value": "windows"
+              },
+              {
+                "key": "process.command_line",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe -Xmx160m -XX:MaxMetaspaceSize=192m -javaagent:C:\\Users\\imrane\\Desktop\\lachguer\\.tools\\course7\\protocols\\opentelemetry-javaagent-2.9.0.jar soap-api/target/soap-api-1.0.0.jar --server.port=19602 --spring.profiles.active=observability --logging.level.root=WARN --logging.level.ma.imrane.hotel=INFO"
+              },
+              {
+                "key": "process.executable.path",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe"
+              },
+              {
+                "key": "process.pid",
+                "type": "int64",
+                "value": 63800
+              },
+              {
+                "key": "process.runtime.description",
+                "type": "string",
+                "value": "Microsoft OpenJDK 64-Bit Server VM 17.0.16+8-LTS"
+              },
+              {
+                "key": "process.runtime.name",
+                "type": "string",
+                "value": "OpenJDK Runtime Environment"
+              },
+              {
+                "key": "process.runtime.version",
+                "type": "string",
+                "value": "17.0.16+8-LTS"
+              },
+              {
+                "key": "service.instance.id",
+                "type": "string",
+                "value": "2d236717-3395-4504-83ad-55b36f316cfb"
+              },
+              {
+                "key": "service.version",
+                "type": "string",
+                "value": "1.0.0"
+              },
+              {
+                "key": "telemetry.distro.name",
+                "type": "string",
+                "value": "opentelemetry-java-instrumentation"
+              },
+              {
+                "key": "telemetry.distro.version",
+                "type": "string",
+                "value": "2.9.0"
+              },
+              {
+                "key": "telemetry.sdk.language",
+                "type": "string",
+                "value": "java"
+              },
+              {
+                "key": "telemetry.sdk.name",
+                "type": "string",
+                "value": "opentelemetry"
+              },
+              {
+                "key": "telemetry.sdk.version",
+                "type": "string",
+                "value": "1.43.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      },
+      {
+        "traceID": "648845f296f2a98f42afcd495699b9f0",
+        "spans": [
+          {
+            "traceID": "648845f296f2a98f42afcd495699b9f0",
+            "spanID": "35ed7dbbbe2c3ba8",
+            "operationName": "GET /actuator/prometheus",
+            "references": [],
+            "startTime": 1792029666939709,
+            "duration": 184647,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "io.opentelemetry.tomcat-10.0"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "2.9.0-alpha"
+              },
+              {
+                "key": "http.response.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "thread.id",
+                "type": "int64",
+                "value": 29
+              },
+              {
+                "key": "server.port",
+                "type": "int64",
+                "value": 19602
+              },
+              {
+                "key": "http.request.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "server.address",
+                "type": "string",
+                "value": "host.docker.internal"
+              },
+              {
+                "key": "client.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "network.peer.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "url.path",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "url.scheme",
+                "type": "string",
+                "value": "http"
+              },
+              {
+                "key": "thread.name",
+                "type": "string",
+                "value": "http-nio-19602-exec-2"
+              },
+              {
+                "key": "network.peer.port",
+                "type": "int64",
+                "value": 49502
+              },
+              {
+                "key": "network.protocol.version",
+                "type": "string",
+                "value": "1.1"
+              },
+              {
+                "key": "user_agent.original",
+                "type": "string",
+                "value": "Prometheus/2.42.0"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "hotel-soap-api",
+            "tags": [
+              {
+                "key": "host.arch",
+                "type": "string",
+                "value": "amd64"
+              },
+              {
+                "key": "host.name",
+                "type": "string",
+                "value": "DESKTOP-M1SRB6S"
+              },
+              {
+                "key": "os.description",
+                "type": "string",
+                "value": "Windows 11 10.0"
+              },
+              {
+                "key": "os.type",
+                "type": "string",
+                "value": "windows"
+              },
+              {
+                "key": "process.command_line",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe -Xmx160m -XX:MaxMetaspaceSize=192m -javaagent:C:\\Users\\imrane\\Desktop\\lachguer\\.tools\\course7\\protocols\\opentelemetry-javaagent-2.9.0.jar soap-api/target/soap-api-1.0.0.jar --server.port=19602 --spring.profiles.active=observability --logging.level.root=WARN --logging.level.ma.imrane.hotel=INFO"
+              },
+              {
+                "key": "process.executable.path",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe"
+              },
+              {
+                "key": "process.pid",
+                "type": "int64",
+                "value": 63800
+              },
+              {
+                "key": "process.runtime.description",
+                "type": "string",
+                "value": "Microsoft OpenJDK 64-Bit Server VM 17.0.16+8-LTS"
+              },
+              {
+                "key": "process.runtime.name",
+                "type": "string",
+                "value": "OpenJDK Runtime Environment"
+              },
+              {
+                "key": "process.runtime.version",
+                "type": "string",
+                "value": "17.0.16+8-LTS"
+              },
+              {
+                "key": "service.instance.id",
+                "type": "string",
+                "value": "2d236717-3395-4504-83ad-55b36f316cfb"
+              },
+              {
+                "key": "service.version",
+                "type": "string",
+                "value": "1.0.0"
+              },
+              {
+                "key": "telemetry.distro.name",
+                "type": "string",
+                "value": "opentelemetry-java-instrumentation"
+              },
+              {
+                "key": "telemetry.distro.version",
+                "type": "string",
+                "value": "2.9.0"
+              },
+              {
+                "key": "telemetry.sdk.language",
+                "type": "string",
+                "value": "java"
+              },
+              {
+                "key": "telemetry.sdk.name",
+                "type": "string",
+                "value": "opentelemetry"
+              },
+              {
+                "key": "telemetry.sdk.version",
+                "type": "string",
+                "value": "1.43.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      },
+      {
+        "traceID": "fadeb5fc834a0890c25ed1c3dd1d887c",
+        "spans": [
+          {
+            "traceID": "fadeb5fc834a0890c25ed1c3dd1d887c",
+            "spanID": "dd9dcdbfef5bb933",
+            "operationName": "GET /actuator/prometheus",
+            "references": [],
+            "startTime": 1792029681939372,
+            "duration": 200318,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "io.opentelemetry.tomcat-10.0"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "2.9.0-alpha"
+              },
+              {
+                "key": "http.response.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "thread.id",
+                "type": "int64",
+                "value": 34
+              },
+              {
+                "key": "server.port",
+                "type": "int64",
+                "value": 19602
+              },
+              {
+                "key": "http.request.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "server.address",
+                "type": "string",
+                "value": "host.docker.internal"
+              },
+              {
+                "key": "client.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "network.peer.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "url.path",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "url.scheme",
+                "type": "string",
+                "value": "http"
+              },
+              {
+                "key": "thread.name",
+                "type": "string",
+                "value": "http-nio-19602-exec-7"
+              },
+              {
+                "key": "network.peer.port",
+                "type": "int64",
+                "value": 49502
+              },
+              {
+                "key": "network.protocol.version",
+                "type": "string",
+                "value": "1.1"
+              },
+              {
+                "key": "user_agent.original",
+                "type": "string",
+                "value": "Prometheus/2.42.0"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "hotel-soap-api",
+            "tags": [
+              {
+                "key": "host.arch",
+                "type": "string",
+                "value": "amd64"
+              },
+              {
+                "key": "host.name",
+                "type": "string",
+                "value": "DESKTOP-M1SRB6S"
+              },
+              {
+                "key": "os.description",
+                "type": "string",
+                "value": "Windows 11 10.0"
+              },
+              {
+                "key": "os.type",
+                "type": "string",
+                "value": "windows"
+              },
+              {
+                "key": "process.command_line",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe -Xmx160m -XX:MaxMetaspaceSize=192m -javaagent:C:\\Users\\imrane\\Desktop\\lachguer\\.tools\\course7\\protocols\\opentelemetry-javaagent-2.9.0.jar soap-api/target/soap-api-1.0.0.jar --server.port=19602 --spring.profiles.active=observability --logging.level.root=WARN --logging.level.ma.imrane.hotel=INFO"
+              },
+              {
+                "key": "process.executable.path",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe"
+              },
+              {
+                "key": "process.pid",
+                "type": "int64",
+                "value": 63800
+              },
+              {
+                "key": "process.runtime.description",
+                "type": "string",
+                "value": "Microsoft OpenJDK 64-Bit Server VM 17.0.16+8-LTS"
+              },
+              {
+                "key": "process.runtime.name",
+                "type": "string",
+                "value": "OpenJDK Runtime Environment"
+              },
+              {
+                "key": "process.runtime.version",
+                "type": "string",
+                "value": "17.0.16+8-LTS"
+              },
+              {
+                "key": "service.instance.id",
+                "type": "string",
+                "value": "2d236717-3395-4504-83ad-55b36f316cfb"
+              },
+              {
+                "key": "service.version",
+                "type": "string",
+                "value": "1.0.0"
+              },
+              {
+                "key": "telemetry.distro.name",
+                "type": "string",
+                "value": "opentelemetry-java-instrumentation"
+              },
+              {
+                "key": "telemetry.distro.version",
+                "type": "string",
+                "value": "2.9.0"
+              },
+              {
+                "key": "telemetry.sdk.language",
+                "type": "string",
+                "value": "java"
+              },
+              {
+                "key": "telemetry.sdk.name",
+                "type": "string",
+                "value": "opentelemetry"
+              },
+              {
+                "key": "telemetry.sdk.version",
+                "type": "string",
+                "value": "1.43.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      },
+      {
+        "traceID": "814bcfe06d322c5789cd7592d07ed57f",
+        "spans": [
+          {
+            "traceID": "814bcfe06d322c5789cd7592d07ed57f",
+            "spanID": "2a364b5269b88b02",
+            "operationName": "GET /actuator/prometheus",
+            "references": [],
+            "startTime": 1792029696935711,
+            "duration": 188679,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "io.opentelemetry.tomcat-10.0"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "2.9.0-alpha"
+              },
+              {
+                "key": "http.response.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "thread.id",
+                "type": "int64",
+                "value": 35
+              },
+              {
+                "key": "server.port",
+                "type": "int64",
+                "value": 19602
+              },
+              {
+                "key": "http.request.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "server.address",
+                "type": "string",
+                "value": "host.docker.internal"
+              },
+              {
+                "key": "client.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "network.peer.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "url.path",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "url.scheme",
+                "type": "string",
+                "value": "http"
+              },
+              {
+                "key": "thread.name",
+                "type": "string",
+                "value": "http-nio-19602-exec-8"
+              },
+              {
+                "key": "network.peer.port",
+                "type": "int64",
+                "value": 49502
+              },
+              {
+                "key": "network.protocol.version",
+                "type": "string",
+                "value": "1.1"
+              },
+              {
+                "key": "user_agent.original",
+                "type": "string",
+                "value": "Prometheus/2.42.0"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "hotel-soap-api",
+            "tags": [
+              {
+                "key": "host.arch",
+                "type": "string",
+                "value": "amd64"
+              },
+              {
+                "key": "host.name",
+                "type": "string",
+                "value": "DESKTOP-M1SRB6S"
+              },
+              {
+                "key": "os.description",
+                "type": "string",
+                "value": "Windows 11 10.0"
+              },
+              {
+                "key": "os.type",
+                "type": "string",
+                "value": "windows"
+              },
+              {
+                "key": "process.command_line",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe -Xmx160m -XX:MaxMetaspaceSize=192m -javaagent:C:\\Users\\imrane\\Desktop\\lachguer\\.tools\\course7\\protocols\\opentelemetry-javaagent-2.9.0.jar soap-api/target/soap-api-1.0.0.jar --server.port=19602 --spring.profiles.active=observability --logging.level.root=WARN --logging.level.ma.imrane.hotel=INFO"
+              },
+              {
+                "key": "process.executable.path",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe"
+              },
+              {
+                "key": "process.pid",
+                "type": "int64",
+                "value": 63800
+              },
+              {
+                "key": "process.runtime.description",
+                "type": "string",
+                "value": "Microsoft OpenJDK 64-Bit Server VM 17.0.16+8-LTS"
+              },
+              {
+                "key": "process.runtime.name",
+                "type": "string",
+                "value": "OpenJDK Runtime Environment"
+              },
+              {
+                "key": "process.runtime.version",
+                "type": "string",
+                "value": "17.0.16+8-LTS"
+              },
+              {
+                "key": "service.instance.id",
+                "type": "string",
+                "value": "2d236717-3395-4504-83ad-55b36f316cfb"
+              },
+              {
+                "key": "service.version",
+                "type": "string",
+                "value": "1.0.0"
+              },
+              {
+                "key": "telemetry.distro.name",
+                "type": "string",
+                "value": "opentelemetry-java-instrumentation"
+              },
+              {
+                "key": "telemetry.distro.version",
+                "type": "string",
+                "value": "2.9.0"
+              },
+              {
+                "key": "telemetry.sdk.language",
+                "type": "string",
+                "value": "java"
+              },
+              {
+                "key": "telemetry.sdk.name",
+                "type": "string",
+                "value": "opentelemetry"
+              },
+              {
+                "key": "telemetry.sdk.version",
+                "type": "string",
+                "value": "1.43.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      }
+    ],
+    "jaeger-query": [
+      {
+        "traceID": "25b73bd9d02fb62a",
+        "spans": [
+          {
+            "traceID": "25b73bd9d02fb62a",
+            "spanID": "25b73bd9d02fb62a",
+            "flags": 1,
+            "operationName": "/api/services",
+            "references": [],
+            "startTime": 1792029449767836,
+            "duration": 14185,
+            "tags": [
+              {
+                "key": "sampler.type",
+                "type": "string",
+                "value": "const"
+              },
+              {
+                "key": "sampler.param",
+                "type": "bool",
+                "value": true
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "http.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.url",
+                "type": "string",
+                "value": "/api/services"
+              },
+              {
+                "key": "component",
+                "type": "string",
+                "value": "net/http"
+              },
+              {
+                "key": "http.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "jaeger-query",
+            "tags": [
+              {
+                "key": "client-uuid",
+                "type": "string",
+                "value": "2cc54e44d99b18c7"
+              },
+              {
+                "key": "hostname",
+                "type": "string",
+                "value": "efc12b3080da"
+              },
+              {
+                "key": "ip",
+                "type": "string",
+                "value": "192.168.16.3"
+              },
+              {
+                "key": "jaeger.version",
+                "type": "string",
+                "value": "Go-2.30.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      }
+    ],
+    "hotel-rest-api": [
+      {
+        "traceID": "b8a39e3bc805bf6db305fa18774c9dff",
+        "spans": [
+          {
+            "traceID": "b8a39e3bc805bf6db305fa18774c9dff",
+            "spanID": "132c28180ef04aa9",
+            "operationName": "GET /actuator/prometheus",
+            "references": [],
+            "startTime": 1792029633285664,
+            "duration": 335269,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "io.opentelemetry.tomcat-10.0"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "2.9.0-alpha"
+              },
+              {
+                "key": "http.response.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "thread.id",
+                "type": "int64",
+                "value": 29
+              },
+              {
+                "key": "server.port",
+                "type": "int64",
+                "value": 19601
+              },
+              {
+                "key": "http.request.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "server.address",
+                "type": "string",
+                "value": "host.docker.internal"
+              },
+              {
+                "key": "client.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "network.peer.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "url.path",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "url.scheme",
+                "type": "string",
+                "value": "http"
+              },
+              {
+                "key": "thread.name",
+                "type": "string",
+                "value": "http-nio-19601-exec-2"
+              },
+              {
+                "key": "network.peer.port",
+                "type": "int64",
+                "value": 49459
+              },
+              {
+                "key": "network.protocol.version",
+                "type": "string",
+                "value": "1.1"
+              },
+              {
+                "key": "user_agent.original",
+                "type": "string",
+                "value": "Prometheus/2.42.0"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "hotel-rest-api",
+            "tags": [
+              {
+                "key": "host.arch",
+                "type": "string",
+                "value": "amd64"
+              },
+              {
+                "key": "host.name",
+                "type": "string",
+                "value": "DESKTOP-M1SRB6S"
+              },
+              {
+                "key": "os.description",
+                "type": "string",
+                "value": "Windows 11 10.0"
+              },
+              {
+                "key": "os.type",
+                "type": "string",
+                "value": "windows"
+              },
+              {
+                "key": "process.command_line",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe -Xmx160m -XX:MaxMetaspaceSize=192m -javaagent:C:\\Users\\imrane\\Desktop\\lachguer\\.tools\\course7\\protocols\\opentelemetry-javaagent-2.9.0.jar rest-api/target/rest-api-1.0.0.jar --server.port=19601 --spring.profiles.active=observability --logging.level.root=WARN --logging.level.ma.imrane.hotel=INFO"
+              },
+              {
+                "key": "process.executable.path",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe"
+              },
+              {
+                "key": "process.pid",
+                "type": "int64",
+                "value": 47568
+              },
+              {
+                "key": "process.runtime.description",
+                "type": "string",
+                "value": "Microsoft OpenJDK 64-Bit Server VM 17.0.16+8-LTS"
+              },
+              {
+                "key": "process.runtime.name",
+                "type": "string",
+                "value": "OpenJDK Runtime Environment"
+              },
+              {
+                "key": "process.runtime.version",
+                "type": "string",
+                "value": "17.0.16+8-LTS"
+              },
+              {
+                "key": "service.instance.id",
+                "type": "string",
+                "value": "b22a27c5-4f7f-4b0d-8582-6bbcdd2ad767"
+              },
+              {
+                "key": "service.version",
+                "type": "string",
+                "value": "1.0.0"
+              },
+              {
+                "key": "telemetry.distro.name",
+                "type": "string",
+                "value": "opentelemetry-java-instrumentation"
+              },
+              {
+                "key": "telemetry.distro.version",
+                "type": "string",
+                "value": "2.9.0"
+              },
+              {
+                "key": "telemetry.sdk.language",
+                "type": "string",
+                "value": "java"
+              },
+              {
+                "key": "telemetry.sdk.name",
+                "type": "string",
+                "value": "opentelemetry"
+              },
+              {
+                "key": "telemetry.sdk.version",
+                "type": "string",
+                "value": "1.43.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      },
+      {
+        "traceID": "99a9154dc27a6fa48645b3bdc1d8d761",
+        "spans": [
+          {
+            "traceID": "99a9154dc27a6fa48645b3bdc1d8d761",
+            "spanID": "4572c983d294eb9a",
+            "operationName": "GET /actuator/prometheus",
+            "references": [],
+            "startTime": 1792029648283339,
+            "duration": 179159,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "io.opentelemetry.tomcat-10.0"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "2.9.0-alpha"
+              },
+              {
+                "key": "http.response.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "thread.id",
+                "type": "int64",
+                "value": 51
+              },
+              {
+                "key": "server.port",
+                "type": "int64",
+                "value": 19601
+              },
+              {
+                "key": "http.request.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "server.address",
+                "type": "string",
+                "value": "host.docker.internal"
+              },
+              {
+                "key": "client.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "network.peer.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "url.path",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "url.scheme",
+                "type": "string",
+                "value": "http"
+              },
+              {
+                "key": "thread.name",
+                "type": "string",
+                "value": "http-nio-19601-exec-12"
+              },
+              {
+                "key": "network.peer.port",
+                "type": "int64",
+                "value": 49459
+              },
+              {
+                "key": "network.protocol.version",
+                "type": "string",
+                "value": "1.1"
+              },
+              {
+                "key": "user_agent.original",
+                "type": "string",
+                "value": "Prometheus/2.42.0"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "hotel-rest-api",
+            "tags": [
+              {
+                "key": "host.arch",
+                "type": "string",
+                "value": "amd64"
+              },
+              {
+                "key": "host.name",
+                "type": "string",
+                "value": "DESKTOP-M1SRB6S"
+              },
+              {
+                "key": "os.description",
+                "type": "string",
+                "value": "Windows 11 10.0"
+              },
+              {
+                "key": "os.type",
+                "type": "string",
+                "value": "windows"
+              },
+              {
+                "key": "process.command_line",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe -Xmx160m -XX:MaxMetaspaceSize=192m -javaagent:C:\\Users\\imrane\\Desktop\\lachguer\\.tools\\course7\\protocols\\opentelemetry-javaagent-2.9.0.jar rest-api/target/rest-api-1.0.0.jar --server.port=19601 --spring.profiles.active=observability --logging.level.root=WARN --logging.level.ma.imrane.hotel=INFO"
+              },
+              {
+                "key": "process.executable.path",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe"
+              },
+              {
+                "key": "process.pid",
+                "type": "int64",
+                "value": 47568
+              },
+              {
+                "key": "process.runtime.description",
+                "type": "string",
+                "value": "Microsoft OpenJDK 64-Bit Server VM 17.0.16+8-LTS"
+              },
+              {
+                "key": "process.runtime.name",
+                "type": "string",
+                "value": "OpenJDK Runtime Environment"
+              },
+              {
+                "key": "process.runtime.version",
+                "type": "string",
+                "value": "17.0.16+8-LTS"
+              },
+              {
+                "key": "service.instance.id",
+                "type": "string",
+                "value": "b22a27c5-4f7f-4b0d-8582-6bbcdd2ad767"
+              },
+              {
+                "key": "service.version",
+                "type": "string",
+                "value": "1.0.0"
+              },
+              {
+                "key": "telemetry.distro.name",
+                "type": "string",
+                "value": "opentelemetry-java-instrumentation"
+              },
+              {
+                "key": "telemetry.distro.version",
+                "type": "string",
+                "value": "2.9.0"
+              },
+              {
+                "key": "telemetry.sdk.language",
+                "type": "string",
+                "value": "java"
+              },
+              {
+                "key": "telemetry.sdk.name",
+                "type": "string",
+                "value": "opentelemetry"
+              },
+              {
+                "key": "telemetry.sdk.version",
+                "type": "string",
+                "value": "1.43.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      },
+      {
+        "traceID": "ac3622068c2eab88234437b383149fd3",
+        "spans": [
+          {
+            "traceID": "ac3622068c2eab88234437b383149fd3",
+            "spanID": "823d4c618d5e0a3f",
+            "operationName": "GET /actuator/prometheus",
+            "references": [],
+            "startTime": 1792029663281831,
+            "duration": 150681,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "io.opentelemetry.tomcat-10.0"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "2.9.0-alpha"
+              },
+              {
+                "key": "http.response.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "thread.id",
+                "type": "int64",
+                "value": 52
+              },
+              {
+                "key": "server.port",
+                "type": "int64",
+                "value": 19601
+              },
+              {
+                "key": "http.request.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "server.address",
+                "type": "string",
+                "value": "host.docker.internal"
+              },
+              {
+                "key": "client.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "network.peer.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "url.path",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "url.scheme",
+                "type": "string",
+                "value": "http"
+              },
+              {
+                "key": "thread.name",
+                "type": "string",
+                "value": "http-nio-19601-exec-13"
+              },
+              {
+                "key": "network.peer.port",
+                "type": "int64",
+                "value": 49459
+              },
+              {
+                "key": "network.protocol.version",
+                "type": "string",
+                "value": "1.1"
+              },
+              {
+                "key": "user_agent.original",
+                "type": "string",
+                "value": "Prometheus/2.42.0"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "hotel-rest-api",
+            "tags": [
+              {
+                "key": "host.arch",
+                "type": "string",
+                "value": "amd64"
+              },
+              {
+                "key": "host.name",
+                "type": "string",
+                "value": "DESKTOP-M1SRB6S"
+              },
+              {
+                "key": "os.description",
+                "type": "string",
+                "value": "Windows 11 10.0"
+              },
+              {
+                "key": "os.type",
+                "type": "string",
+                "value": "windows"
+              },
+              {
+                "key": "process.command_line",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe -Xmx160m -XX:MaxMetaspaceSize=192m -javaagent:C:\\Users\\imrane\\Desktop\\lachguer\\.tools\\course7\\protocols\\opentelemetry-javaagent-2.9.0.jar rest-api/target/rest-api-1.0.0.jar --server.port=19601 --spring.profiles.active=observability --logging.level.root=WARN --logging.level.ma.imrane.hotel=INFO"
+              },
+              {
+                "key": "process.executable.path",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe"
+              },
+              {
+                "key": "process.pid",
+                "type": "int64",
+                "value": 47568
+              },
+              {
+                "key": "process.runtime.description",
+                "type": "string",
+                "value": "Microsoft OpenJDK 64-Bit Server VM 17.0.16+8-LTS"
+              },
+              {
+                "key": "process.runtime.name",
+                "type": "string",
+                "value": "OpenJDK Runtime Environment"
+              },
+              {
+                "key": "process.runtime.version",
+                "type": "string",
+                "value": "17.0.16+8-LTS"
+              },
+              {
+                "key": "service.instance.id",
+                "type": "string",
+                "value": "b22a27c5-4f7f-4b0d-8582-6bbcdd2ad767"
+              },
+              {
+                "key": "service.version",
+                "type": "string",
+                "value": "1.0.0"
+              },
+              {
+                "key": "telemetry.distro.name",
+                "type": "string",
+                "value": "opentelemetry-java-instrumentation"
+              },
+              {
+                "key": "telemetry.distro.version",
+                "type": "string",
+                "value": "2.9.0"
+              },
+              {
+                "key": "telemetry.sdk.language",
+                "type": "string",
+                "value": "java"
+              },
+              {
+                "key": "telemetry.sdk.name",
+                "type": "string",
+                "value": "opentelemetry"
+              },
+              {
+                "key": "telemetry.sdk.version",
+                "type": "string",
+                "value": "1.43.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      },
+      {
+        "traceID": "cc76d74c82bff83d1a8840050c94b334",
+        "spans": [
+          {
+            "traceID": "cc76d74c82bff83d1a8840050c94b334",
+            "spanID": "a29c215a09c68746",
+            "operationName": "GET /actuator/prometheus",
+            "references": [],
+            "startTime": 1792029678281478,
+            "duration": 175403,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "io.opentelemetry.tomcat-10.0"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "2.9.0-alpha"
+              },
+              {
+                "key": "http.response.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "thread.id",
+                "type": "int64",
+                "value": 58
+              },
+              {
+                "key": "server.port",
+                "type": "int64",
+                "value": 19601
+              },
+              {
+                "key": "http.request.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "server.address",
+                "type": "string",
+                "value": "host.docker.internal"
+              },
+              {
+                "key": "client.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "network.peer.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "url.path",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "url.scheme",
+                "type": "string",
+                "value": "http"
+              },
+              {
+                "key": "thread.name",
+                "type": "string",
+                "value": "http-nio-19601-exec-19"
+              },
+              {
+                "key": "network.peer.port",
+                "type": "int64",
+                "value": 49459
+              },
+              {
+                "key": "network.protocol.version",
+                "type": "string",
+                "value": "1.1"
+              },
+              {
+                "key": "user_agent.original",
+                "type": "string",
+                "value": "Prometheus/2.42.0"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "hotel-rest-api",
+            "tags": [
+              {
+                "key": "host.arch",
+                "type": "string",
+                "value": "amd64"
+              },
+              {
+                "key": "host.name",
+                "type": "string",
+                "value": "DESKTOP-M1SRB6S"
+              },
+              {
+                "key": "os.description",
+                "type": "string",
+                "value": "Windows 11 10.0"
+              },
+              {
+                "key": "os.type",
+                "type": "string",
+                "value": "windows"
+              },
+              {
+                "key": "process.command_line",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe -Xmx160m -XX:MaxMetaspaceSize=192m -javaagent:C:\\Users\\imrane\\Desktop\\lachguer\\.tools\\course7\\protocols\\opentelemetry-javaagent-2.9.0.jar rest-api/target/rest-api-1.0.0.jar --server.port=19601 --spring.profiles.active=observability --logging.level.root=WARN --logging.level.ma.imrane.hotel=INFO"
+              },
+              {
+                "key": "process.executable.path",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe"
+              },
+              {
+                "key": "process.pid",
+                "type": "int64",
+                "value": 47568
+              },
+              {
+                "key": "process.runtime.description",
+                "type": "string",
+                "value": "Microsoft OpenJDK 64-Bit Server VM 17.0.16+8-LTS"
+              },
+              {
+                "key": "process.runtime.name",
+                "type": "string",
+                "value": "OpenJDK Runtime Environment"
+              },
+              {
+                "key": "process.runtime.version",
+                "type": "string",
+                "value": "17.0.16+8-LTS"
+              },
+              {
+                "key": "service.instance.id",
+                "type": "string",
+                "value": "b22a27c5-4f7f-4b0d-8582-6bbcdd2ad767"
+              },
+              {
+                "key": "service.version",
+                "type": "string",
+                "value": "1.0.0"
+              },
+              {
+                "key": "telemetry.distro.name",
+                "type": "string",
+                "value": "opentelemetry-java-instrumentation"
+              },
+              {
+                "key": "telemetry.distro.version",
+                "type": "string",
+                "value": "2.9.0"
+              },
+              {
+                "key": "telemetry.sdk.language",
+                "type": "string",
+                "value": "java"
+              },
+              {
+                "key": "telemetry.sdk.name",
+                "type": "string",
+                "value": "opentelemetry"
+              },
+              {
+                "key": "telemetry.sdk.version",
+                "type": "string",
+                "value": "1.43.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      },
+      {
+        "traceID": "59898d75b51eaae53073a471d7a85b78",
+        "spans": [
+          {
+            "traceID": "59898d75b51eaae53073a471d7a85b78",
+            "spanID": "78c3ad73772cee8c",
+            "operationName": "GET /actuator/prometheus",
+            "references": [],
+            "startTime": 1792029693279351,
+            "duration": 164829,
+            "tags": [
+              {
+                "key": "otel.library.name",
+                "type": "string",
+                "value": "io.opentelemetry.tomcat-10.0"
+              },
+              {
+                "key": "otel.library.version",
+                "type": "string",
+                "value": "2.9.0-alpha"
+              },
+              {
+                "key": "http.response.status_code",
+                "type": "int64",
+                "value": 200
+              },
+              {
+                "key": "thread.id",
+                "type": "int64",
+                "value": 33
+              },
+              {
+                "key": "server.port",
+                "type": "int64",
+                "value": 19601
+              },
+              {
+                "key": "http.request.method",
+                "type": "string",
+                "value": "GET"
+              },
+              {
+                "key": "http.route",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "server.address",
+                "type": "string",
+                "value": "host.docker.internal"
+              },
+              {
+                "key": "client.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "network.peer.address",
+                "type": "string",
+                "value": "127.0.0.1"
+              },
+              {
+                "key": "url.path",
+                "type": "string",
+                "value": "/actuator/prometheus"
+              },
+              {
+                "key": "url.scheme",
+                "type": "string",
+                "value": "http"
+              },
+              {
+                "key": "thread.name",
+                "type": "string",
+                "value": "http-nio-19601-exec-6"
+              },
+              {
+                "key": "network.peer.port",
+                "type": "int64",
+                "value": 49459
+              },
+              {
+                "key": "network.protocol.version",
+                "type": "string",
+                "value": "1.1"
+              },
+              {
+                "key": "user_agent.original",
+                "type": "string",
+                "value": "Prometheus/2.42.0"
+              },
+              {
+                "key": "span.kind",
+                "type": "string",
+                "value": "server"
+              },
+              {
+                "key": "internal.span.format",
+                "type": "string",
+                "value": "proto"
+              }
+            ],
+            "logs": [],
+            "processID": "p1",
+            "warnings": null
+          }
+        ],
+        "processes": {
+          "p1": {
+            "serviceName": "hotel-rest-api",
+            "tags": [
+              {
+                "key": "host.arch",
+                "type": "string",
+                "value": "amd64"
+              },
+              {
+                "key": "host.name",
+                "type": "string",
+                "value": "DESKTOP-M1SRB6S"
+              },
+              {
+                "key": "os.description",
+                "type": "string",
+                "value": "Windows 11 10.0"
+              },
+              {
+                "key": "os.type",
+                "type": "string",
+                "value": "windows"
+              },
+              {
+                "key": "process.command_line",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe -Xmx160m -XX:MaxMetaspaceSize=192m -javaagent:C:\\Users\\imrane\\Desktop\\lachguer\\.tools\\course7\\protocols\\opentelemetry-javaagent-2.9.0.jar rest-api/target/rest-api-1.0.0.jar --server.port=19601 --spring.profiles.active=observability --logging.level.root=WARN --logging.level.ma.imrane.hotel=INFO"
+              },
+              {
+                "key": "process.executable.path",
+                "type": "string",
+                "value": "C:\\Program Files\\Microsoft\\jdk-17.0.16.8-hotspot\\bin\\java.exe"
+              },
+              {
+                "key": "process.pid",
+                "type": "int64",
+                "value": 47568
+              },
+              {
+                "key": "process.runtime.description",
+                "type": "string",
+                "value": "Microsoft OpenJDK 64-Bit Server VM 17.0.16+8-LTS"
+              },
+              {
+                "key": "process.runtime.name",
+                "type": "string",
+                "value": "OpenJDK Runtime Environment"
+              },
+              {
+                "key": "process.runtime.version",
+                "type": "string",
+                "value": "17.0.16+8-LTS"
+              },
+              {
+                "key": "service.instance.id",
+                "type": "string",
+                "value": "b22a27c5-4f7f-4b0d-8582-6bbcdd2ad767"
+              },
+              {
+                "key": "service.version",
+                "type": "string",
+                "value": "1.0.0"
+              },
+              {
+                "key": "telemetry.distro.name",
+                "type": "string",
+                "value": "opentelemetry-java-instrumentation"
+              },
+              {
+                "key": "telemetry.distro.version",
+                "type": "string",
+                "value": "2.9.0"
+              },
+              {
+                "key": "telemetry.sdk.language",
+                "type": "string",
+                "value": "java"
+              },
+              {
+                "key": "telemetry.sdk.name",
+                "type": "string",
+                "value": "opentelemetry"
+              },
+              {
+                "key": "telemetry.sdk.version",
+                "type": "string",
+                "value": "1.43.0"
+              }
+            ]
+          }
+        },
+        "warnings": null
+      }
+    ]
+  }
+}

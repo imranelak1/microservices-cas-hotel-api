@@ -1,0 +1,70 @@
+name: Comparaison isolée des quatre API
+on:
+  workflow_dispatch:
+    inputs:
+      smoke:
+        description: Deux utilisateurs, 1 Kio, une répétition (vérification exclue des résultats)
+        type: boolean
+        default: false
+permissions:
+  contents: read
+defaults:
+  run:
+    shell: bash
+jobs:
+  benchmark:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 100
+    strategy:
+      fail-fast: false
+      matrix:
+        protocol: [rest, soap, graphql, grpc]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: graphql-api/package-lock.json
+      - name: Vérifier Java et Apollo
+        run: |
+          mvn -B verify -DargLine=-Xmx256m | tee java-build.log
+          npm --prefix graphql-api ci
+          npm --prefix graphql-api test | tee node-tests.log
+        env:
+          MAVEN_OPTS: -Xmx384m
+      - name: Construire uniquement le serveur mesuré
+        env:
+          PROTOCOL: ${{ matrix.protocol }}
+        run: |
+          if [[ "$PROTOCOL" == graphql ]]; then
+            docker build -f graphql-api/Dockerfile -t hotel-measured:1.0.0 .
+          else
+            docker build -t hotel-measured:1.0.0 "$PROTOCOL-api"
+          fi
+          docker pull postgres:16.15
+          docker pull eclipse-temurin:21.0.8_9-jre-jammy
+      - name: Mesurer les 36 combinaisons sur ce runner
+        env:
+          PROTOCOL: ${{ matrix.protocol }}
+          SMOKE: ${{ inputs.smoke }}
+        run: python3 loadtests/run_isolated.py
+      - name: Conserver les appels bruts et les compteurs CPU/RSS
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hotel-${{ matrix.protocol }}-${{ inputs.smoke && 'smoke' || 'full' }}
+          retention-days: 1
+          path: |
+            run-output/
+            java-build.log
+            node-tests.log
+            **/surefire-reports/*.xml
+      - name: Nettoyer ce runner
+        if: always()
+        run: docker rm -f hotel-generator hotel-measured hotel-postgres || true

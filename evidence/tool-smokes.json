@@ -1,0 +1,51 @@
+{
+  "purpose": "Real low-load functional smoke checks; excluded from comparative full metrics",
+  "tools": [
+    {
+      "name": "JMeter",
+      "version": "5.5",
+      "calls": 33,
+      "failures": 0
+    },
+    {
+      "name": "k6",
+      "version": "0.42.0",
+      "protocol": "rest",
+      "check_passes": 17,
+      "check_failures": 0
+    },
+    {
+      "name": "k6",
+      "version": "0.42.0",
+      "protocol": "soap",
+      "check_passes": 21,
+      "check_failures": 0
+    },
+    {
+      "name": "k6",
+      "version": "0.42.0",
+      "protocol": "graphql",
+      "check_passes": 17,
+      "check_failures": 0
+    },
+    {
+      "name": "k6",
+      "version": "0.42.0",
+      "protocol": "grpc",
+      "check_passes": 21,
+      "check_failures": 0
+    },
+    {
+      "name": "Locust",
+      "version": "2.15.1",
+      "calls": 34,
+      "failures": 0
+    },
+    {
+      "name": "Gatling",
+      "version": "3.9.0",
+      "requests": 10,
+      "failures": 0
+    }
+  ]
+}

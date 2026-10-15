@@ -1,5 +1,6 @@
 const {test}=require('node:test');const assert=require('node:assert/strict');const jwt=require('jsonwebtoken');const {authenticate,validate}=require('./security.cjs');
 const secret='course7-hotel-local-secret-32-characters-minimum';
+test('connexion locale autonome',()=>{const {issueToken}=require('./security.cjs');assert.equal(authenticate('Bearer '+issueToken({username:'student',password:'labpass'})).sub,'student');assert.throws(()=>issueToken({username:'student',password:'incorrect'}));});
 test('JWT valide accepté',()=>{const token=jwt.sign({sub:'student'},secret,{issuer:'hotel-lab',expiresIn:'1h'});assert.equal(authenticate('Bearer '+token).sub,'student');});
 test('JWT absent, faux et expiré refusés',()=>{assert.throws(()=>authenticate());assert.throws(()=>authenticate('Bearer incorrect'));const token=jwt.sign({sub:'student'},secret,{issuer:'hotel-lab',expiresIn:-1});assert.throws(()=>authenticate('Bearer '+token));});
 test('dates et taille de payload contrôlées',()=>{const input={clientId:1,chambreId:1,dateDebut:'2030-01-01',dateFin:'2030-01-03',preferences:'calme'};assert.doesNotThrow(()=>validate(input));assert.throws(()=>validate({...input,dateFin:'2029-01-01'}));assert.throws(()=>validate({...input,preferences:'x'.repeat(102401)}));});
