@@ -1,0 +1,39 @@
+GET http://host.docker.internal:19601/api/reservations/1
+HTTP 401
+POST http://host.docker.internal:19602/ws/hotel
+HTTP 401
+POST http://host.docker.internal:19603/graphql
+HTTP 401
+GET http://host.docker.internal:19601/api/reservations/1
+HTTP 200
+POST http://host.docker.internal:19602/ws/hotel
+HTTP 200
+POST http://host.docker.internal:19603/graphql
+HTTP 200
+ERROR:
+  Code: Unauthenticated
+  Message: JWT requis
+
+gRPC GetReservation(id=1), JWT fourni sans afficher son contenu
+{
+  "id": "1",
+  "clientId": "1",
+  "chambreId": "1",
+  "dateDebut": "2030-01-01",
+  "dateFin": "2030-01-03",
+  "preferences": "Étage calme",
+  "client": {
+    "id": "1",
+    "nom": "Client 1",
+    "prenom": "Prénom 1",
+    "email": "client1@example.org",
+    "telephone": "0600000001"
+  },
+  "chambre": {
+    "id": "1",
+    "type": "SIMPLE",
+    "prix": 350,
+    "disponible": true
+  }
+}
+Toutes les assertions du scénario sont passées.

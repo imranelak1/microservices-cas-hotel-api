@@ -1,0 +1,304 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hotel-rest
+  template:
+    metadata:
+      labels:
+        app: hotel-rest
+    spec:
+      containers:
+      - name: api
+        image: course7-hotel-rest:1.0.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 19601
+          name: http
+        envFrom:
+        - configMapRef:
+            name: hotel-api-config
+        env:
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: hotel-local
+              key: database-password
+        - name: HOTEL_JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: hotel-local
+              key: jwt-secret
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: hotel-local
+              key: jwt-secret
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: '1'
+            memory: 384Mi
+        startupProbe:
+          httpGet:
+            path: /actuator/health
+            port: http
+          periodSeconds: 5
+          failureThreshold: 60
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
+            port: http
+          periodSeconds: 5
+        livenessProbe:
+          tcpSocket:
+            port: http
+          periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rest-api
+spec:
+  selector:
+    app: hotel-rest
+  ports:
+  - name: http
+    port: 19601
+    targetPort: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: soap-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hotel-soap
+  template:
+    metadata:
+      labels:
+        app: hotel-soap
+    spec:
+      containers:
+      - name: api
+        image: course7-hotel-soap:1.0.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 19602
+          name: http
+        envFrom:
+        - configMapRef:
+            name: hotel-api-config
+        env:
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: hotel-local
+              key: database-password
+        - name: HOTEL_JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: hotel-local
+              key: jwt-secret
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: hotel-local
+              key: jwt-secret
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: '1'
+            memory: 384Mi
+        startupProbe:
+          httpGet:
+            path: /actuator/health
+            port: http
+          periodSeconds: 5
+          failureThreshold: 60
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
+            port: http
+          periodSeconds: 5
+        livenessProbe:
+          tcpSocket:
+            port: http
+          periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: soap-api
+spec:
+  selector:
+    app: hotel-soap
+  ports:
+  - name: http
+    port: 19602
+    targetPort: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hotel-grpc
+  template:
+    metadata:
+      labels:
+        app: hotel-grpc
+    spec:
+      containers:
+      - name: api
+        image: course7-hotel-grpc:1.0.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 19604
+          name: http
+        - containerPort: 19605
+          name: grpc
+        envFrom:
+        - configMapRef:
+            name: hotel-api-config
+        env:
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: hotel-local
+              key: database-password
+        - name: HOTEL_JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: hotel-local
+              key: jwt-secret
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: hotel-local
+              key: jwt-secret
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: '1'
+            memory: 384Mi
+        startupProbe:
+          httpGet:
+            path: /actuator/health
+            port: http
+          periodSeconds: 5
+          failureThreshold: 60
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
+            port: http
+          periodSeconds: 5
+        livenessProbe:
+          tcpSocket:
+            port: http
+          periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-api
+spec:
+  selector:
+    app: hotel-grpc
+  ports:
+  - name: http
+    port: 19604
+    targetPort: http
+  - name: grpc
+    port: 19605
+    targetPort: grpc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: graphql-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hotel-graphql
+  template:
+    metadata:
+      labels:
+        app: hotel-graphql
+    spec:
+      containers:
+      - name: api
+        image: course7-hotel-graphql:1.0.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 19603
+          name: http
+        envFrom:
+        - configMapRef:
+            name: hotel-api-config
+        env:
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: hotel-local
+              key: database-password
+        - name: HOTEL_JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: hotel-local
+              key: jwt-secret
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: hotel-local
+              key: jwt-secret
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: '1'
+            memory: 256Mi
+        startupProbe:
+          httpGet:
+            path: /health
+            port: http
+          periodSeconds: 5
+          failureThreshold: 60
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: http
+          periodSeconds: 5
+        livenessProbe:
+          tcpSocket:
+            port: http
+          periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: graphql-api
+spec:
+  selector:
+    app: hotel-graphql
+  ports:
+  - name: http
+    port: 19603
+    targetPort: http

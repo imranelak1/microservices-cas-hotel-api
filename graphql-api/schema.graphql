@@ -1,0 +1,6 @@
+type Client {id:ID! nom:String! prenom:String! email:String! telephone:String}
+type Chambre {id:ID! type:String! prix:Float! disponible:Boolean!}
+type Reservation {id:ID! clientId:ID! chambreId:ID! client:Client! chambre:Chambre! dateDebut:String! dateFin:String! preferences:String!}
+input ReservationInput {clientId:ID! chambreId:ID! dateDebut:String! dateFin:String! preferences:String}
+type Query {reservations:[Reservation!]! reservation(id:ID!):Reservation clients:[Client!]! chambres:[Chambre!]!}
+type Mutation {createReservation(input:ReservationInput!):Reservation updateReservation(id:ID!,input:ReservationInput!):Reservation deleteReservation(id:ID!):Boolean!}

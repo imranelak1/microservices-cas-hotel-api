@@ -1,0 +1,20 @@
+syntax="proto3";
+package hotel;
+option java_package="ma.imrane.hotel.proto";
+option java_multiple_files=true;
+message Empty {}
+message Id {int64 id=1;}
+message Client {int64 id=1;string nom=2;string prenom=3;string email=4;string telephone=5;}
+message Chambre {int64 id=1;string type=2;double prix=3;bool disponible=4;}
+message Reservation {int64 id=1;int64 clientId=2;int64 chambreId=3;string dateDebut=4;string dateFin=5;string preferences=6;Client client=7;Chambre chambre=8;}
+message ReservationInput {int64 clientId=1;int64 chambreId=2;string dateDebut=3;string dateFin=4;string preferences=5;}
+message UpdateRequest {int64 id=1;ReservationInput input=2;}
+message ReservationList {repeated Reservation reservations=1;}
+message DeleteResponse {bool deleted=1;}
+service HotelService {
+  rpc CreateReservation(ReservationInput) returns(Reservation);
+  rpc GetReservation(Id) returns(Reservation);
+  rpc UpdateReservation(UpdateRequest) returns(Reservation);
+  rpc DeleteReservation(Id) returns(DeleteResponse);
+  rpc ListReservations(Empty) returns(ReservationList);
+}

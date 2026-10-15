@@ -1,0 +1,17 @@
+global:
+  scrape_interval: 15s
+scrape_configs:
+  - job_name: hotel-java
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets: [host.docker.internal:19601]
+        labels: {protocol: REST}
+      - targets: [host.docker.internal:19602]
+        labels: {protocol: SOAP}
+      - targets: [host.docker.internal:19604]
+        labels: {protocol: gRPC}
+  - job_name: hotel-graphql
+    metrics_path: /metrics
+    static_configs:
+      - targets: [host.docker.internal:19603]
+        labels: {protocol: GraphQL}

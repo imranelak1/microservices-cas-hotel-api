@@ -1,0 +1,31 @@
+name: course7-hotel
+services:
+  rest:
+    build: ./rest-api
+    mem_limit: 384m
+    environment: {DB_URL: "jdbc:postgresql://postgres:5432/hotel"}
+    ports: ["127.0.0.1:19601:19601"]
+    depends_on: {postgres: {condition: service_healthy}}
+  soap:
+    build: ./soap-api
+    mem_limit: 384m
+    environment: {DB_URL: "jdbc:postgresql://postgres:5432/hotel"}
+    ports: ["127.0.0.1:19602:19602"]
+    depends_on: {postgres: {condition: service_healthy}}
+  grpc:
+    build: ./grpc-api
+    mem_limit: 384m
+    environment: {DB_URL: "jdbc:postgresql://postgres:5432/hotel"}
+    ports: ["127.0.0.1:19604:19604", "127.0.0.1:19605:19605"]
+    depends_on: {postgres: {condition: service_healthy}}
+  graphql:
+    build: {context: ., dockerfile: graphql-api/Dockerfile}
+    mem_limit: 320m
+    environment: {DATABASE_URL: "postgresql://lab:labpass@postgres:5432/hotel"}
+    ports: ["127.0.0.1:19603:19603"]
+    depends_on: {postgres: {condition: service_healthy}}
+  frontend:
+    build: {context: ./frontend, args: {VITE_API_URL: "http://localhost:19601"}}
+    mem_limit: 64m
+    ports: ["127.0.0.1:13082:80"]
+    depends_on: [rest]

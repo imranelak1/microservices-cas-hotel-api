@@ -1,0 +1,64 @@
+name: Vérifier les API et le client
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/src/**'
+      - '**/pom.xml'
+      - 'pom.xml'
+      - 'graphql-api/**'
+      - 'frontend/**'
+      - 'database/**'
+      - 'k8s/**'
+      - 'kustomization.yaml'
+      - '**/Dockerfile'
+      - '.github/workflows/ci.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+defaults:
+  run:
+    shell: bash
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: |
+            graphql-api/package-lock.json
+            frontend/package-lock.json
+      - name: Vérifier les API Java
+        run: mvn -B clean verify
+        env:
+          MAVEN_OPTS: -Xmx384m
+      - name: Vérifier Apollo
+        working-directory: graphql-api
+        run: npm ci --no-audit --no-fund && npm test
+      - name: Compiler React
+        working-directory: frontend
+        run: npm ci --no-audit --no-fund && npm run build
+      - name: Construire les cinq images
+        run: |
+          docker build -t course7-hotel-rest:1.0.0 rest-api
+          docker build -t course7-hotel-soap:1.0.0 soap-api
+          docker build -t course7-hotel-grpc:1.0.0 grpc-api
+          docker build -f graphql-api/Dockerfile -t course7-hotel-graphql:1.0.0 .
+          docker build --build-arg VITE_API_URL=/backend -t course7-hotel-frontend:1.0.0 frontend
+      - name: Valider les manifests Kubernetes
+        run: kubectl kustomize . > /tmp/hotel-manifests.yaml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: junit
+          retention-days: 7
+          path: '**/surefire-reports/*.xml'

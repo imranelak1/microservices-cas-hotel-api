@@ -1,0 +1,119 @@
+[
+  {
+    "method": "POST",
+    "path": "/auth/token",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/api/chambres",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/api/clients",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/api/reservations",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "path": "/api/reservations",
+    "status": 201
+  },
+  {
+    "method": "GET",
+    "path": "/api/clients",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/api/chambres",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/api/reservations",
+    "status": 200
+  },
+  {
+    "createdId": 2
+  },
+  {
+    "method": "GET",
+    "path": "/api/reservations/2",
+    "status": 200
+  },
+  {
+    "method": "PUT",
+    "path": "/api/reservations/2",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/api/clients",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/api/reservations",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/api/chambres",
+    "status": 200
+  },
+  {
+    "verifiedReservation": {
+      "id": 2,
+      "clientId": 2,
+      "chambreId": 20,
+      "dateDebut": "2031-04-10",
+      "dateFin": "2031-04-14",
+      "preferences": "Chambre calme, séjour prolongé de deux nuits.",
+      "client": {
+        "id": 2,
+        "nom": "Client 2",
+        "prenom": "Prénom 2",
+        "email": "client2@example.org",
+        "telephone": "0600000002"
+      },
+      "chambre": {
+        "id": 20,
+        "type": "DOUBLE",
+        "prix": 300,
+        "disponible": true
+      }
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/reservations/2",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/api/reservations",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/api/clients",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/api/chambres",
+    "status": 200
+  },
+  {
+    "deletedStatus": 404,
+    "unauthenticatedStatus": 401,
+    "verified": "actual React login/GET/POST/PUT/DELETE and JWT protection",
+    "capturedAt": "2026-10-15T01:20:11.610Z"
+  }
+]

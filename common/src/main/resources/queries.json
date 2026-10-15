@@ -1,0 +1,9 @@
+{
+  "find": "SELECT r.id,r.client_id AS \"clientId\",r.chambre_id AS \"chambreId\",r.date_debut::text AS \"dateDebut\",r.date_fin::text AS \"dateFin\",r.preferences,json_build_object('id',c.id,'nom',c.nom,'prenom',c.prenom,'email',c.email,'telephone',c.telephone) AS client,json_build_object('id',h.id,'type',h.type,'prix',h.prix,'disponible',h.disponible) AS chambre FROM reservation r JOIN client c ON c.id=r.client_id JOIN chambre h ON h.id=r.chambre_id WHERE r.id=$1",
+  "list": "SELECT id FROM reservation ORDER BY id LIMIT 1000",
+  "create": "INSERT INTO reservation(client_id,chambre_id,date_debut,date_fin,preferences) SELECT $1,$2,$3::date,$4::date,$5 WHERE EXISTS(SELECT 1 FROM chambre WHERE id=$2 AND disponible) RETURNING id",
+  "update": "UPDATE reservation SET client_id=$1,chambre_id=$2,date_debut=$3::date,date_fin=$4::date,preferences=$5 WHERE id=$6 RETURNING id",
+  "delete": "DELETE FROM reservation WHERE id=$1 RETURNING id",
+  "clients": "SELECT id,nom,prenom,email,telephone FROM client ORDER BY id",
+  "chambres": "SELECT id,type,prix,disponible FROM chambre ORDER BY id"
+}

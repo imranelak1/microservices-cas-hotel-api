@@ -1,0 +1,13 @@
+name: course7-hotel
+services:
+  postgres:
+    image: postgres:16.15
+    mem_limit: 384m
+    environment: {POSTGRES_USER: lab, POSTGRES_PASSWORD: labpass, POSTGRES_DB: hotel}
+    command: ["postgres", "-c", "shared_buffers=64MB", "-c", "max_connections=100"]
+    ports: ["127.0.0.1:19632:5432"]
+    volumes: ["./database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lab -d hotel"]
+      interval: 5s
+      retries: 30

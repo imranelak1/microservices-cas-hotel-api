@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: hotel-frontend}
+  template:
+    metadata:
+      labels: {app: hotel-frontend}
+    spec:
+      containers:
+        - name: nginx
+          image: course7-hotel-frontend:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports: [{containerPort: 80}]
+          resources:
+            requests: {cpu: 25m, memory: 16Mi}
+            limits: {cpu: '0.5', memory: 64Mi}
+          readinessProbe:
+            httpGet: {path: /, port: 80}
+          volumeMounts:
+            - {name: config, mountPath: /etc/nginx/conf.d/default.conf, subPath: default.conf, readOnly: true}
+      volumes:
+        - name: config
+          configMap: {name: hotel-nginx}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+spec:
+  selector: {app: hotel-frontend}
+  ports: [{port: 80, targetPort: 80}]

@@ -1,0 +1,34 @@
+GET http://host.docker.internal:19601/api/reservations/1
+HTTP 200
+{"id":1,"clientId":1,"chambreId":1,"dateDebut":"2030-01-01","dateFin":"2030-01-03","preferences":"Étage calme","client":{"id":1,"nom":"Client 1","prenom":"Prénom 1","email":"client1@example.org","telephone":"0600000001"},"chambre":{"id":1,"type":"SIMPLE","prix":350.0,"disponible":true}}
+POST http://host.docker.internal:19602/ws/hotel
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:h="http://hotel.imrane.ma/"><s:Body><h:getReservation><id>1</id></h:getReservation></s:Body></s:Envelope>
+HTTP 200
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><ns2:getReservationResponse xmlns:ns2="http://hotel.imrane.ma/"><return><id>1</id><clientId>1</clientId><chambreId>1</chambreId><dateDebut>2030-01-01</dateDebut><dateFin>2030-01-03</dateFin><preferences>Étage calme</preferences><client><id>1</id><nom>Client 1</nom><prenom>Prénom 1</prenom><email>client1@example.org</email><telephone>0600000001</telephone></client><chambre><id>1</id><type>SIMPLE</type><prix>350.0</prix><disponible>true</disponible></chambre></return></ns2:getReservationResponse></soap:Body></soap:Envelope>
+POST http://host.docker.internal:19603/graphql
+{"query": "{reservation(id:1){id dateDebut dateFin preferences client{id nom} chambre{id type prix}}}"}
+HTTP 200
+{"data":{"reservation":{"id":"1","dateDebut":"2030-01-01","dateFin":"2030-01-03","preferences":"Étage calme","client":{"id":"1","nom":"Client 1"},"chambre":{"id":"1","type":"SIMPLE","prix":350}}}}
+
+gRPC GetReservation(id=1), JWT fourni sans afficher son contenu
+{
+  "id": "1",
+  "clientId": "1",
+  "chambreId": "1",
+  "dateDebut": "2030-01-01",
+  "dateFin": "2030-01-03",
+  "preferences": "Étage calme",
+  "client": {
+    "id": "1",
+    "nom": "Client 1",
+    "prenom": "Prénom 1",
+    "email": "client1@example.org",
+    "telephone": "0600000001"
+  },
+  "chambre": {
+    "id": "1",
+    "type": "SIMPLE",
+    "prix": 350,
+    "disponible": true
+  }
+}
