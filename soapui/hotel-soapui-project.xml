@@ -1,162 +1,177 @@
 <?xml version='1.0' encoding='utf-8'?>
-<con:soapui-project xmlns:con="http://eviware.com/soapui/config" id="course7-182" name="hotel" soapui-version="5.7.0" activeEnvironment="Default">
-  <con:settings />
-  <con:interface type="wsdl" name="hotelSoapBinding" bindingName="{http://hotel.imrane.ma/}hotelSoapBinding" soapVersion="1_1" anonymous="optional" definition="../wsdl/hotel.wsdl">
-    <con:settings />
-    <con:endpoints>
-      <con:endpoint>http://localhost:19602/ws/hotel</con:endpoint>
-    </con:endpoints>
-    <con:operation name="getReservation" bindingOperationName="getReservation" type="Request-Response" soapAction="" style="document" anonymous="optional">
-      <con:call name="getReservation">
-        <con:endpoint>http://localhost:19602/ws/hotel</con:endpoint>
-        <con:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://hotel.imrane.ma/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:getReservation&gt;&lt;id&gt;1&lt;/id&gt;&lt;/b:getReservation&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</con:request>
-      </con:call>
-    </con:operation>
-    <con:operation name="listReservations" bindingOperationName="listReservations" type="Request-Response" soapAction="" style="document" anonymous="optional">
-      <con:call name="listReservations">
-        <con:endpoint>http://localhost:19602/ws/hotel</con:endpoint>
-        <con:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://hotel.imrane.ma/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:listReservations&gt;&lt;/b:listReservations&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</con:request>
-      </con:call>
-    </con:operation>
-    <con:operation name="createReservation" bindingOperationName="createReservation" type="Request-Response" soapAction="" style="document" anonymous="optional">
-      <con:call name="createReservation">
-        <con:endpoint>http://localhost:19602/ws/hotel</con:endpoint>
-        <con:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://hotel.imrane.ma/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:createReservation&gt;&lt;input&gt;&lt;clientId&gt;1&lt;/clientId&gt;&lt;chambreId&gt;25&lt;/chambreId&gt;&lt;dateDebut&gt;2036-01-01&lt;/dateDebut&gt;&lt;dateFin&gt;2036-01-03&lt;/dateFin&gt;&lt;preferences&gt;calme&lt;/preferences&gt;&lt;/input&gt;&lt;/b:createReservation&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</con:request>
-      </con:call>
-    </con:operation>
-    <con:operation name="updateReservation" bindingOperationName="updateReservation" type="Request-Response" soapAction="" style="document" anonymous="optional">
-      <con:call name="updateReservation">
-        <con:endpoint>http://localhost:19602/ws/hotel</con:endpoint>
-        <con:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://hotel.imrane.ma/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:updateReservation&gt;&lt;id&gt;1&lt;/id&gt;&lt;input&gt;&lt;clientId&gt;1&lt;/clientId&gt;&lt;chambreId&gt;1&lt;/chambreId&gt;&lt;dateDebut&gt;2030-01-01&lt;/dateDebut&gt;&lt;dateFin&gt;2030-01-04&lt;/dateFin&gt;&lt;preferences&gt;calme&lt;/preferences&gt;&lt;/input&gt;&lt;/b:updateReservation&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</con:request>
-      </con:call>
-    </con:operation>
-    <con:operation name="deleteReservation" bindingOperationName="deleteReservation" type="Request-Response" soapAction="" style="document" anonymous="optional">
-      <con:call name="deleteReservation">
-        <con:endpoint>http://localhost:19602/ws/hotel</con:endpoint>
-        <con:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://hotel.imrane.ma/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:deleteReservation&gt;&lt;id&gt;${#Project#reservationId}&lt;/id&gt;&lt;/b:deleteReservation&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</con:request>
-      </con:call>
-    </con:operation>
-  </con:interface>
-  <con:testSuite name="Validation SOAP">
-    <con:testCase name="getReservation">
-      <con:testStep type="request" name="getReservation">
-        <con:config type="wsdlrequest">
-          <con:interface>hotelSoapBinding</con:interface>
-          <con:operation>getReservation</con:operation>
-          <con:request name="getReservation">
-            <con:endpoint>http://localhost:19602/ws/hotel</con:endpoint>
-            <con:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://hotel.imrane.ma/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:getReservation&gt;&lt;id&gt;1&lt;/id&gt;&lt;/b:getReservation&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</con:request>
-            <con:assertion type="Simple Contains" name="Réponse attendue">
-              <con:configuration>
+<ns0:soapui-project xmlns:ns0="http://eviware.com/soapui/config" id="course7-182" name="hotel" soapui-version="5.7.0" activeEnvironment="Default">
+  <ns0:settings />
+  <ns0:interface type="wsdl" name="HotelServiceSoapBinding" bindingName="{http://hotel.imrane.ma/}HotelServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="../wsdl/hotel.wsdl">
+    <ns0:settings />
+    <ns0:endpoints>
+      <ns0:endpoint>http://localhost:19602/ws/hotel</ns0:endpoint>
+    </ns0:endpoints>
+    <ns0:operation name="getReservation" bindingOperationName="getReservation" type="Request-Response" soapAction="" style="document" anonymous="optional">
+      <ns0:call name="getReservation">
+        <ns0:settings>
+          <ns0:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config"&gt;&lt;con:entry key="Authorization" value="Bearer ${#Project#jwt}"/&gt;&lt;/xml-fragment&gt;</ns0:setting>
+        </ns0:settings>
+        <ns0:endpoint>http://localhost:19602/ws/hotel</ns0:endpoint>
+        <ns0:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://hotel.imrane.ma/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:getReservation&gt;&lt;id&gt;1&lt;/id&gt;&lt;/b:getReservation&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</ns0:request>
+      </ns0:call>
+    </ns0:operation>
+    <ns0:operation name="listReservations" bindingOperationName="listReservations" type="Request-Response" soapAction="" style="document" anonymous="optional">
+      <ns0:call name="listReservations">
+        <ns0:settings>
+          <ns0:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config"&gt;&lt;con:entry key="Authorization" value="Bearer ${#Project#jwt}"/&gt;&lt;/xml-fragment&gt;</ns0:setting>
+        </ns0:settings>
+        <ns0:endpoint>http://localhost:19602/ws/hotel</ns0:endpoint>
+        <ns0:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://hotel.imrane.ma/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:listReservations&gt;&lt;/b:listReservations&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</ns0:request>
+      </ns0:call>
+    </ns0:operation>
+    <ns0:operation name="createReservation" bindingOperationName="createReservation" type="Request-Response" soapAction="" style="document" anonymous="optional">
+      <ns0:call name="createReservation">
+        <ns0:settings>
+          <ns0:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config"&gt;&lt;con:entry key="Authorization" value="Bearer ${#Project#jwt}"/&gt;&lt;/xml-fragment&gt;</ns0:setting>
+        </ns0:settings>
+        <ns0:endpoint>http://localhost:19602/ws/hotel</ns0:endpoint>
+        <ns0:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://hotel.imrane.ma/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:createReservation&gt;&lt;input&gt;&lt;clientId&gt;1&lt;/clientId&gt;&lt;chambreId&gt;25&lt;/chambreId&gt;&lt;dateDebut&gt;2036-01-01&lt;/dateDebut&gt;&lt;dateFin&gt;2036-01-03&lt;/dateFin&gt;&lt;preferences&gt;calme&lt;/preferences&gt;&lt;/input&gt;&lt;/b:createReservation&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</ns0:request>
+      </ns0:call>
+    </ns0:operation>
+    <ns0:operation name="updateReservation" bindingOperationName="updateReservation" type="Request-Response" soapAction="" style="document" anonymous="optional">
+      <ns0:call name="updateReservation">
+        <ns0:settings>
+          <ns0:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config"&gt;&lt;con:entry key="Authorization" value="Bearer ${#Project#jwt}"/&gt;&lt;/xml-fragment&gt;</ns0:setting>
+        </ns0:settings>
+        <ns0:endpoint>http://localhost:19602/ws/hotel</ns0:endpoint>
+        <ns0:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://hotel.imrane.ma/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:updateReservation&gt;&lt;id&gt;1&lt;/id&gt;&lt;input&gt;&lt;clientId&gt;1&lt;/clientId&gt;&lt;chambreId&gt;1&lt;/chambreId&gt;&lt;dateDebut&gt;2030-01-01&lt;/dateDebut&gt;&lt;dateFin&gt;2030-01-04&lt;/dateFin&gt;&lt;preferences&gt;calme&lt;/preferences&gt;&lt;/input&gt;&lt;/b:updateReservation&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</ns0:request>
+      </ns0:call>
+    </ns0:operation>
+    <ns0:operation name="deleteReservation" bindingOperationName="deleteReservation" type="Request-Response" soapAction="" style="document" anonymous="optional">
+      <ns0:call name="deleteReservation">
+        <ns0:settings>
+          <ns0:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config"&gt;&lt;con:entry key="Authorization" value="Bearer ${#Project#jwt}"/&gt;&lt;/xml-fragment&gt;</ns0:setting>
+        </ns0:settings>
+        <ns0:endpoint>http://localhost:19602/ws/hotel</ns0:endpoint>
+        <ns0:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://hotel.imrane.ma/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:deleteReservation&gt;&lt;id&gt;${#Project#reservationId}&lt;/id&gt;&lt;/b:deleteReservation&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</ns0:request>
+      </ns0:call>
+    </ns0:operation>
+  </ns0:interface>
+  <ns0:testSuite name="Validation SOAP">
+    <ns0:testCase name="getReservation">
+      <ns0:testStep type="request" name="getReservation">
+        <ns0:config type="wsdlrequest">
+          <ns0:interface>HotelServiceSoapBinding</ns0:interface>
+          <ns0:operation>getReservation</ns0:operation>
+          <ns0:request name="getReservation">
+            <ns0:settings>
+              <ns0:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config"&gt;&lt;con:entry key="Authorization" value="Bearer ${#Project#jwt}"/&gt;&lt;/xml-fragment&gt;</ns0:setting>
+            </ns0:settings>
+            <ns0:endpoint>http://localhost:19602/ws/hotel</ns0:endpoint>
+            <ns0:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://hotel.imrane.ma/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:getReservation&gt;&lt;id&gt;1&lt;/id&gt;&lt;/b:getReservation&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</ns0:request>
+            <ns0:assertion type="Simple Contains" name="Réponse attendue">
+              <ns0:configuration>
                 <token>getReservationResponse</token>
                 <ignoreCase>false</ignoreCase>
                 <useRegEx>false</useRegEx>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-          </con:request>
-        </con:config>
-      </con:testStep>
-    </con:testCase>
-    <con:testCase name="listReservations">
-      <con:testStep type="request" name="listReservations">
-        <con:config type="wsdlrequest">
-          <con:interface>hotelSoapBinding</con:interface>
-          <con:operation>listReservations</con:operation>
-          <con:request name="listReservations">
-            <con:endpoint>http://localhost:19602/ws/hotel</con:endpoint>
-            <con:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://hotel.imrane.ma/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:listReservations&gt;&lt;/b:listReservations&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</con:request>
-            <con:assertion type="Simple Contains" name="Réponse attendue">
-              <con:configuration>
+              </ns0:configuration>
+            </ns0:assertion>
+          </ns0:request>
+        </ns0:config>
+      </ns0:testStep>
+    </ns0:testCase>
+    <ns0:testCase name="listReservations">
+      <ns0:testStep type="request" name="listReservations">
+        <ns0:config type="wsdlrequest">
+          <ns0:interface>HotelServiceSoapBinding</ns0:interface>
+          <ns0:operation>listReservations</ns0:operation>
+          <ns0:request name="listReservations">
+            <ns0:settings>
+              <ns0:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config"&gt;&lt;con:entry key="Authorization" value="Bearer ${#Project#jwt}"/&gt;&lt;/xml-fragment&gt;</ns0:setting>
+            </ns0:settings>
+            <ns0:endpoint>http://localhost:19602/ws/hotel</ns0:endpoint>
+            <ns0:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://hotel.imrane.ma/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:listReservations&gt;&lt;/b:listReservations&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</ns0:request>
+            <ns0:assertion type="Simple Contains" name="Réponse attendue">
+              <ns0:configuration>
                 <token>listReservationsResponse</token>
                 <ignoreCase>false</ignoreCase>
                 <useRegEx>false</useRegEx>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-          </con:request>
-        </con:config>
-      </con:testStep>
-    </con:testCase>
-    <con:testCase name="createReservation">
-      <con:testStep type="request" name="createReservation">
-        <con:config type="wsdlrequest">
-          <con:interface>hotelSoapBinding</con:interface>
-          <con:operation>createReservation</con:operation>
-          <con:request name="createReservation">
-            <con:endpoint>http://localhost:19602/ws/hotel</con:endpoint>
-            <con:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://hotel.imrane.ma/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:createReservation&gt;&lt;input&gt;&lt;clientId&gt;1&lt;/clientId&gt;&lt;chambreId&gt;25&lt;/chambreId&gt;&lt;dateDebut&gt;2036-01-01&lt;/dateDebut&gt;&lt;dateFin&gt;2036-01-03&lt;/dateFin&gt;&lt;preferences&gt;calme&lt;/preferences&gt;&lt;/input&gt;&lt;/b:createReservation&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</con:request>
-            <con:assertion type="Simple Contains" name="Réponse attendue">
-              <con:configuration>
+              </ns0:configuration>
+            </ns0:assertion>
+          </ns0:request>
+        </ns0:config>
+      </ns0:testStep>
+    </ns0:testCase>
+    <ns0:testCase name="createReservation">
+      <ns0:testStep type="request" name="createReservation">
+        <ns0:config type="wsdlrequest">
+          <ns0:interface>HotelServiceSoapBinding</ns0:interface>
+          <ns0:operation>createReservation</ns0:operation>
+          <ns0:request name="createReservation">
+            <ns0:settings>
+              <ns0:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config"&gt;&lt;con:entry key="Authorization" value="Bearer ${#Project#jwt}"/&gt;&lt;/xml-fragment&gt;</ns0:setting>
+            </ns0:settings>
+            <ns0:endpoint>http://localhost:19602/ws/hotel</ns0:endpoint>
+            <ns0:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://hotel.imrane.ma/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:createReservation&gt;&lt;input&gt;&lt;clientId&gt;1&lt;/clientId&gt;&lt;chambreId&gt;25&lt;/chambreId&gt;&lt;dateDebut&gt;2036-01-01&lt;/dateDebut&gt;&lt;dateFin&gt;2036-01-03&lt;/dateFin&gt;&lt;preferences&gt;calme&lt;/preferences&gt;&lt;/input&gt;&lt;/b:createReservation&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</ns0:request>
+            <ns0:assertion type="Simple Contains" name="Réponse attendue">
+              <ns0:configuration>
                 <token>createReservationResponse</token>
                 <ignoreCase>false</ignoreCase>
                 <useRegEx>false</useRegEx>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-          </con:request>
-        </con:config>
-      </con:testStep>
-    </con:testCase>
-    <con:testCase name="updateReservation">
-      <con:testStep type="request" name="updateReservation">
-        <con:config type="wsdlrequest">
-          <con:interface>hotelSoapBinding</con:interface>
-          <con:operation>updateReservation</con:operation>
-          <con:request name="updateReservation">
-            <con:endpoint>http://localhost:19602/ws/hotel</con:endpoint>
-            <con:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://hotel.imrane.ma/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:updateReservation&gt;&lt;id&gt;1&lt;/id&gt;&lt;input&gt;&lt;clientId&gt;1&lt;/clientId&gt;&lt;chambreId&gt;1&lt;/chambreId&gt;&lt;dateDebut&gt;2030-01-01&lt;/dateDebut&gt;&lt;dateFin&gt;2030-01-04&lt;/dateFin&gt;&lt;preferences&gt;calme&lt;/preferences&gt;&lt;/input&gt;&lt;/b:updateReservation&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</con:request>
-            <con:assertion type="Simple Contains" name="Réponse attendue">
-              <con:configuration>
+              </ns0:configuration>
+            </ns0:assertion>
+          </ns0:request>
+        </ns0:config>
+      </ns0:testStep>
+    </ns0:testCase>
+    <ns0:testCase name="updateReservation">
+      <ns0:testStep type="request" name="updateReservation">
+        <ns0:config type="wsdlrequest">
+          <ns0:interface>HotelServiceSoapBinding</ns0:interface>
+          <ns0:operation>updateReservation</ns0:operation>
+          <ns0:request name="updateReservation">
+            <ns0:settings>
+              <ns0:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config"&gt;&lt;con:entry key="Authorization" value="Bearer ${#Project#jwt}"/&gt;&lt;/xml-fragment&gt;</ns0:setting>
+            </ns0:settings>
+            <ns0:endpoint>http://localhost:19602/ws/hotel</ns0:endpoint>
+            <ns0:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://hotel.imrane.ma/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:updateReservation&gt;&lt;id&gt;${#Project#reservationId}&lt;/id&gt;&lt;input&gt;&lt;clientId&gt;1&lt;/clientId&gt;&lt;chambreId&gt;25&lt;/chambreId&gt;&lt;dateDebut&gt;2036-01-01&lt;/dateDebut&gt;&lt;dateFin&gt;2036-01-04&lt;/dateFin&gt;&lt;preferences&gt;calme&lt;/preferences&gt;&lt;/input&gt;&lt;/b:updateReservation&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</ns0:request>
+            <ns0:assertion type="Simple Contains" name="Réponse attendue">
+              <ns0:configuration>
                 <token>updateReservationResponse</token>
                 <ignoreCase>false</ignoreCase>
                 <useRegEx>false</useRegEx>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-          </con:request>
-        </con:config>
-      </con:testStep>
-    </con:testCase>
-    <con:testCase name="deleteReservation">
-      <con:testStep type="request" name="deleteReservation">
-        <con:config type="wsdlrequest">
-          <con:interface>hotelSoapBinding</con:interface>
-          <con:operation>deleteReservation</con:operation>
-          <con:request name="deleteReservation">
-            <con:endpoint>http://localhost:19602/ws/hotel</con:endpoint>
-            <con:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://hotel.imrane.ma/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:deleteReservation&gt;&lt;id&gt;${#Project#reservationId}&lt;/id&gt;&lt;/b:deleteReservation&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</con:request>
-            <con:assertion type="Simple Contains" name="Réponse attendue">
-              <con:configuration>
+              </ns0:configuration>
+            </ns0:assertion>
+          </ns0:request>
+        </ns0:config>
+      </ns0:testStep>
+    </ns0:testCase>
+    <ns0:testCase name="deleteReservation">
+      <ns0:testStep type="request" name="deleteReservation">
+        <ns0:config type="wsdlrequest">
+          <ns0:interface>HotelServiceSoapBinding</ns0:interface>
+          <ns0:operation>deleteReservation</ns0:operation>
+          <ns0:request name="deleteReservation">
+            <ns0:settings>
+              <ns0:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config"&gt;&lt;con:entry key="Authorization" value="Bearer ${#Project#jwt}"/&gt;&lt;/xml-fragment&gt;</ns0:setting>
+            </ns0:settings>
+            <ns0:endpoint>http://localhost:19602/ws/hotel</ns0:endpoint>
+            <ns0:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://hotel.imrane.ma/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:deleteReservation&gt;&lt;id&gt;${#Project#reservationId}&lt;/id&gt;&lt;/b:deleteReservation&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</ns0:request>
+            <ns0:assertion type="Simple Contains" name="Réponse attendue">
+              <ns0:configuration>
                 <token>deleteReservationResponse</token>
                 <ignoreCase>false</ignoreCase>
                 <useRegEx>false</useRegEx>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-          </con:request>
-        </con:config>
-      </con:testStep>
-    </con:testCase>
-  </con:testSuite>
-  <con:properties>
-    <con:property>
-      <con:name>jwt</con:name>
-      <con:value />
-    </con:property>
-    <con:property>
-      <con:name>reservationId</con:name>
-      <con:value>REPLACE_CREATED_ID</con:value>
-    </con:property>
-  </con:properties>
-</con:soapui-project>
+              </ns0:configuration>
+            </ns0:assertion>
+          </ns0:request>
+        </ns0:config>
+      </ns0:testStep>
+    </ns0:testCase>
+  </ns0:testSuite>
+  <ns0:properties>
+    <ns0:property>
+      <ns0:name>jwt</ns0:name>
+      <ns0:value />
+    </ns0:property>
+    <ns0:property>
+      <ns0:name>reservationId</ns0:name>
+      <ns0:value>REPLACE_CREATED_ID</ns0:value>
+    </ns0:property>
+  </ns0:properties>
+</ns0:soapui-project>

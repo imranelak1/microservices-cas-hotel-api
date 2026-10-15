@@ -21,33 +21,8 @@
         "scrapeUrl": "http://host.docker.internal:19603/metrics",
         "globalUrl": "http://host.docker.internal:19603/metrics",
         "lastError": "",
-        "lastScrape": "2026-10-15T02:21:28.185151429Z",
-        "lastScrapeDuration": 0.015398011,
-        "health": "up",
-        "scrapeInterval": "15s",
-        "scrapeTimeout": "10s"
-      },
-      {
-        "discoveredLabels": {
-          "__address__": "host.docker.internal:19602",
-          "__metrics_path__": "/actuator/prometheus",
-          "__scheme__": "http",
-          "__scrape_interval__": "15s",
-          "__scrape_timeout__": "10s",
-          "job": "hotel-java",
-          "protocol": "SOAP"
-        },
-        "labels": {
-          "instance": "host.docker.internal:19602",
-          "job": "hotel-java",
-          "protocol": "SOAP"
-        },
-        "scrapePool": "hotel-java",
-        "scrapeUrl": "http://host.docker.internal:19602/actuator/prometheus",
-        "globalUrl": "http://host.docker.internal:19602/actuator/prometheus",
-        "lastError": "",
-        "lastScrape": "2026-10-15T02:21:22.047153966Z",
-        "lastScrapeDuration": 0.319795407,
+        "lastScrape": "2026-10-15T02:26:58.167295823Z",
+        "lastScrapeDuration": 0.009762058,
         "health": "up",
         "scrapeInterval": "15s",
         "scrapeTimeout": "10s"
@@ -71,8 +46,8 @@
         "scrapeUrl": "http://host.docker.internal:19604/actuator/prometheus",
         "globalUrl": "http://host.docker.internal:19604/actuator/prometheus",
         "lastError": "",
-        "lastScrape": "2026-10-15T02:21:34.222517733Z",
-        "lastScrapeDuration": 0.220794472,
+        "lastScrape": "2026-10-15T02:26:49.20980785Z",
+        "lastScrapeDuration": 0.200947822,
         "health": "up",
         "scrapeInterval": "15s",
         "scrapeTimeout": "10s"
@@ -96,8 +71,33 @@
         "scrapeUrl": "http://host.docker.internal:19601/actuator/prometheus",
         "globalUrl": "http://host.docker.internal:19601/actuator/prometheus",
         "lastError": "",
-        "lastScrape": "2026-10-15T02:21:33.433067115Z",
-        "lastScrapeDuration": 0.182348169,
+        "lastScrape": "2026-10-15T02:26:48.419684969Z",
+        "lastScrapeDuration": 0.159480861,
+        "health": "up",
+        "scrapeInterval": "15s",
+        "scrapeTimeout": "10s"
+      },
+      {
+        "discoveredLabels": {
+          "__address__": "host.docker.internal:19602",
+          "__metrics_path__": "/actuator/prometheus",
+          "__scheme__": "http",
+          "__scrape_interval__": "15s",
+          "__scrape_timeout__": "10s",
+          "job": "hotel-java",
+          "protocol": "SOAP"
+        },
+        "labels": {
+          "instance": "host.docker.internal:19602",
+          "job": "hotel-java",
+          "protocol": "SOAP"
+        },
+        "scrapePool": "hotel-java",
+        "scrapeUrl": "http://host.docker.internal:19602/actuator/prometheus",
+        "globalUrl": "http://host.docker.internal:19602/actuator/prometheus",
+        "lastError": "",
+        "lastScrape": "2026-10-15T02:26:52.027482257Z",
+        "lastScrapeDuration": 0.174513435,
         "health": "up",
         "scrapeInterval": "15s",
         "scrapeTimeout": "10s"

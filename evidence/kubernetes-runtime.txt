@@ -1,0 +1,46 @@
+$ kubectl -n hotel-lab get deployment,statefulset
+NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/frontend      1/1     1            1           8m3s
+deployment.apps/graphql-api   1/1     1            1           8m3s
+deployment.apps/grpc-api      1/1     1            1           8m3s
+deployment.apps/rest-api      1/1     1            1           8m3s
+deployment.apps/soap-api      1/1     1            1           8m3s
+
+NAME                        READY   AGE
+statefulset.apps/postgres   1/1     8m3s
+POST /backend/auth/token : HTTP200, JWT reçu
+REST : création201, modification200, réservation 5, chevauchement refusé400, une seule ligne SQL, accès sans JWT401
+GraphQL et SOAP : lecture HTTP200 de la même réservation5, départ2036-09-05
+grpc size=1KiB users=2 repetition=1 duration=2.167s
+gRPC : huit appels CRUD réels, zéro erreur (evidence/kubernetes-grpc.csv)
+$ kubectl -n hotel-lab scale deployment/rest-api --replicas=2
+deployment.apps/rest-api scaled
+$ kubectl -n hotel-lab rollout status deployment/rest-api --timeout=240s
+Waiting for deployment "rest-api" rollout to finish: 1 of 2 updated replicas are available...
+deployment "rest-api" successfully rolled out
+$ kubectl -n hotel-lab delete pod rest-api-7954bd88fb-r7cwk --wait=false
+pod "rest-api-7954bd88fb-r7cwk" deleted from hotel-lab namespace
+REST : deux réplicas Ready et remplacement automatique du pod supprimé
+$ kubectl -n hotel-lab delete pod postgres-0 --wait=false
+pod "postgres-0" deleted from hotel-lab namespace
+PostgreSQL : nouveau pod, même PVC, réservation conservée après redémarrage
+$ kubectl -n hotel-lab exec postgres-0 -- psql -U lab -d hotel -c SELECT id,client_id,chambre_id,date_fin FROM reservation WHERE id=5;
+ id | client_id | chambre_id |  date_fin  
+----+-----------+------------+------------
+  5 |         2 |         20 | 2036-09-05
+(1 row)
+$ kubectl -n hotel-lab scale deployment/rest-api --replicas=1
+deployment.apps/rest-api scaled
+$ kubectl -n hotel-lab rollout status deployment/rest-api --timeout=240s
+deployment "rest-api" successfully rolled out
+$ kubectl -n hotel-lab get deployment,statefulset
+NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/frontend      1/1     1            1           8m48s
+deployment.apps/graphql-api   1/1     1            1           8m48s
+deployment.apps/grpc-api      1/1     1            1           8m48s
+deployment.apps/rest-api      1/1     1            1           8m48s
+deployment.apps/soap-api      1/1     1            1           8m48s
+
+NAME                        READY   AGE
+statefulset.apps/postgres   1/1     8m48s
+Vérifié : quatre API, JWT, rollback du chevauchement, réplication, auto-réparation et persistance du PVC.

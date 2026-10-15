@@ -1,0 +1,124 @@
+{
+  "run_url": "https://github.com/imranelak1/microservices-cas-hotel-api/actions/runs/38671019384",
+  "commit": "1091c775b6f5cc50e3e77442d3c21b9e2999a7cd",
+  "totals": {
+    "rest": {
+      "attempts": 765674,
+      "errors": 162
+    },
+    "soap": {
+      "attempts": 683211,
+      "errors": 183
+    },
+    "graphql": {
+      "attempts": 325680,
+      "errors": 0
+    },
+    "grpc": {
+      "attempts": 899625,
+      "errors": 4510
+    }
+  },
+  "artifacts": [
+    {
+      "run": "38671019384",
+      "repository": "imranelak1/microservices-cas-hotel-api",
+      "artifact": {
+        "id": 11943983711,
+        "node_id": "MDg6QXJ0aWZhY3QxMTk0Mzk4MzcxMQ==",
+        "name": "hotel-rest-full",
+        "size_in_bytes": 6848041,
+        "url": "https://api.github.com/repos/imranelak1/microservices-cas-hotel-api/actions/artifacts/11943983711",
+        "archive_download_url": "https://api.github.com/repos/imranelak1/microservices-cas-hotel-api/actions/artifacts/11943983711/zip",
+        "expired": false,
+        "digest": "sha256:3b5635f2012a8ee52748a18fe20e096b218598d29b99d5401df9acc9ac20ea78",
+        "created_at": "2026-10-15T02:34:05Z",
+        "updated_at": "2026-10-15T02:34:05Z",
+        "expires_at": "2026-10-16T02:34:04Z",
+        "workflow_run": {
+          "id": 38671019384,
+          "repository_id": 1420048375,
+          "head_repository_id": 1420048375,
+          "head_branch": "main",
+          "head_sha": "1091c775b6f5cc50e3e77442d3c21b9e2999a7cd"
+        }
+      },
+      "zip_sha256": "3b5635f2012a8ee52748a18fe20e096b218598d29b99d5401df9acc9ac20ea78"
+    },
+    {
+      "run": "38671019384",
+      "repository": "imranelak1/microservices-cas-hotel-api",
+      "artifact": {
+        "id": 11944058839,
+        "node_id": "MDg6QXJ0aWZhY3QxMTk0NDA1ODgzOQ==",
+        "name": "hotel-soap-full",
+        "size_in_bytes": 6229605,
+        "url": "https://api.github.com/repos/imranelak1/microservices-cas-hotel-api/actions/artifacts/11944058839",
+        "archive_download_url": "https://api.github.com/repos/imranelak1/microservices-cas-hotel-api/actions/artifacts/11944058839/zip",
+        "expired": false,
+        "digest": "sha256:435768515fde1638469a88f3ee3d9d551210df42aba6d647f1a04fa588faeade",
+        "created_at": "2026-10-15T02:34:13Z",
+        "updated_at": "2026-10-15T02:34:13Z",
+        "expires_at": "2026-10-16T02:34:12Z",
+        "workflow_run": {
+          "id": 38671019384,
+          "repository_id": 1420048375,
+          "head_repository_id": 1420048375,
+          "head_branch": "main",
+          "head_sha": "1091c775b6f5cc50e3e77442d3c21b9e2999a7cd"
+        }
+      },
+      "zip_sha256": "435768515fde1638469a88f3ee3d9d551210df42aba6d647f1a04fa588faeade"
+    },
+    {
+      "run": "38671019384",
+      "repository": "imranelak1/microservices-cas-hotel-api",
+      "artifact": {
+        "id": 11944308774,
+        "node_id": "MDg6QXJ0aWZhY3QxMTk0NDMwODc3NA==",
+        "name": "hotel-graphql-full",
+        "size_in_bytes": 2941156,
+        "url": "https://api.github.com/repos/imranelak1/microservices-cas-hotel-api/actions/artifacts/11944308774",
+        "archive_download_url": "https://api.github.com/repos/imranelak1/microservices-cas-hotel-api/actions/artifacts/11944308774/zip",
+        "expired": false,
+        "digest": "sha256:178b68aeb2283f9bf8e268d7b3e2fcab77b96f7ef63dc38a4177551b8e69a97f",
+        "created_at": "2026-10-15T02:35:01Z",
+        "updated_at": "2026-10-15T02:35:01Z",
+        "expires_at": "2026-10-16T02:35:00Z",
+        "workflow_run": {
+          "id": 38671019384,
+          "repository_id": 1420048375,
+          "head_repository_id": 1420048375,
+          "head_branch": "main",
+          "head_sha": "1091c775b6f5cc50e3e77442d3c21b9e2999a7cd"
+        }
+      },
+      "zip_sha256": "178b68aeb2283f9bf8e268d7b3e2fcab77b96f7ef63dc38a4177551b8e69a97f"
+    },
+    {
+      "run": "38671019384",
+      "repository": "imranelak1/microservices-cas-hotel-api",
+      "artifact": {
+        "id": 11943963780,
+        "node_id": "MDg6QXJ0aWZhY3QxMTk0Mzk2Mzc4MA==",
+        "name": "hotel-grpc-full",
+        "size_in_bytes": 7591368,
+        "url": "https://api.github.com/repos/imranelak1/microservices-cas-hotel-api/actions/artifacts/11943963780",
+        "archive_download_url": "https://api.github.com/repos/imranelak1/microservices-cas-hotel-api/actions/artifacts/11943963780/zip",
+        "expired": false,
+        "digest": "sha256:269c29f722063d17c777babdfa28b51a94e6216bc1fb64d267dbc8c913b600f5",
+        "created_at": "2026-10-15T02:34:21Z",
+        "updated_at": "2026-10-15T02:34:21Z",
+        "expires_at": "2026-10-16T02:34:19Z",
+        "workflow_run": {
+          "id": 38671019384,
+          "repository_id": 1420048375,
+          "head_repository_id": 1420048375,
+          "head_branch": "main",
+          "head_sha": "1091c775b6f5cc50e3e77442d3c21b9e2999a7cd"
+        }
+      },
+      "zip_sha256": "269c29f722063d17c777babdfa28b51a94e6216bc1fb64d267dbc8c913b600f5"
+    }
+  ]
+}

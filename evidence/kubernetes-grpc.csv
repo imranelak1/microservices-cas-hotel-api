@@ -1,0 +1,9 @@
+timestamp,protocol,size_kib,concurrency,repetition,operation,elapsed_ms,success,request_bytes,response_bytes
+1792031564291,grpc,1,2,1,create,2056.425124,true,962,1045
+1792031564293,grpc,1,2,1,create,2056.453329,true,962,1045
+1792031564314,grpc,1,2,1,read,19.976108,true,2,1045
+1792031564314,grpc,1,2,1,read,20.718224,true,2,1045
+1792031564337,grpc,1,2,1,update,22.190487,true,967,1045
+1792031564337,grpc,1,2,1,update,22.412402,true,967,1045
+1792031564356,grpc,1,2,1,delete,17.986708,true,2,2
+1792031564356,grpc,1,2,1,delete,17.987178,true,2,2

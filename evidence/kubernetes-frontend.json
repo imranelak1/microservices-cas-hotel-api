@@ -1,0 +1,119 @@
+[
+  {
+    "method": "POST",
+    "path": "/backend/auth/token",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/backend/api/clients",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/backend/api/chambres",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/backend/api/reservations",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "path": "/backend/api/reservations",
+    "status": 201
+  },
+  {
+    "method": "GET",
+    "path": "/backend/api/clients",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/backend/api/chambres",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/backend/api/reservations",
+    "status": 200
+  },
+  {
+    "createdId": 2
+  },
+  {
+    "method": "GET",
+    "path": "/backend/api/reservations/2",
+    "status": 200
+  },
+  {
+    "method": "PUT",
+    "path": "/backend/api/reservations/2",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/backend/api/clients",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/backend/api/chambres",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/backend/api/reservations",
+    "status": 200
+  },
+  {
+    "verifiedReservation": {
+      "id": 2,
+      "clientId": 2,
+      "chambreId": 20,
+      "dateDebut": "2035-04-10",
+      "dateFin": "2035-04-14",
+      "preferences": "Chambre calme, séjour prolongé de deux nuits.",
+      "client": {
+        "id": 2,
+        "nom": "Client 2",
+        "prenom": "Prénom 2",
+        "email": "client2@example.org",
+        "telephone": "0600000002"
+      },
+      "chambre": {
+        "id": 20,
+        "type": "DOUBLE",
+        "prix": 300,
+        "disponible": true
+      }
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "/backend/api/reservations/2",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/backend/api/reservations",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/backend/api/clients",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/backend/api/chambres",
+    "status": 200
+  },
+  {
+    "deletedStatus": 404,
+    "unauthenticatedStatus": 401,
+    "verified": "actual React login/GET/POST/PUT/DELETE and JWT protection",
+    "capturedAt": "2026-10-15T02:31:06.404Z"
+  }
+]

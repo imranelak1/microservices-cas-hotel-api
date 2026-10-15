@@ -1,0 +1,11 @@
+scope,files,nonempty_physical_lines,implementation_hours,learning_days
+server-rest,2,25,non chronométré,non évalué
+server-soap,3,29,non chronométré,non évalué
+server-graphql,5,80,non chronométré,non évalué
+server-grpc,4,69,non chronométré,non évalué
+common-java,8,160,non chronométré,non évalué
+shared-sql,1,9,non chronométré,non évalué
+graphql-contract,1,6,non chronométré,non évalué
+protobuf-contract,1,20,non chronométré,non évalué
+common-load-client,1,152,non chronométré,non évalué
+generated-protobuf-stubs,20,7423,non chronométré,non évalué

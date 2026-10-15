@@ -3,5 +3,7 @@ target/
 *.iml
 .env
 *.log
+__pycache__/
+*.pyc
 .tls/
 run-output/

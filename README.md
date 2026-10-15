@@ -1,17 +1,18 @@
 # Étude de cas — Réservations d’hôtel
 
-Le même métier est exposé par quatre API : REST et SOAP avec Spring Boot, GraphQL avec Apollo Server et gRPC Java. Tous les adaptateurs utilisent PostgreSQL et le fichier commun `database/queries.json`. Les contraintes de base empêchent deux réservations de se chevaucher dans la même chambre.
+J’ai repris le même scénario de réservation avec REST, SOAP, GraphQL et gRPC. Les quatre serveurs utilisent PostgreSQL et les mêmes requêtes SQL. Une contrainte empêche deux séjours de se chevaucher dans la même chambre.
 
-```bash
-docker compose up -d
+```sh
 mvn clean verify
-cd graphql-api && npm ci && npm test && npm start
+docker compose -f compose.yml -f compose-apps.yml up --build -d
 ```
 
-Lancer ensuite les jars `rest-api`, `soap-api` et `grpc-api` dans des terminaux séparés. Les ports sont 19601, 19602, 19603 et 19605. Le client React se trouve dans `frontend/`. Le compte local `student / labpass` permet d’obtenir un JWT sur POST `/auth/token` du service REST.
+Le client React s’ouvre sur `http://localhost:13082`. Le compte local est `student / labpass`. Les ports des API sont 19601, 19602, 19603 et 19605. Les contrats WSDL, GraphQL et Protobuf sont inclus, ainsi que les requêtes Postman et SoapUI.
 
-Les contrats WSDL, SDL et Protobuf sont versionnés. Les plans de charge couvrent le CRUD, les messages de 1/10/100 Ko et la montée de 10 à 1 000 appels concurrents. Les résultats mesurés et l’analyse sont dans `results/`. Les différences avec l’environnement matériel théorique du sujet sont indiquées, sans extrapolation à une production.
+Les tests couvrent le CRUD, les JWT, le rollback concurrent et TLS, avec de vraies captures. La comparaison mesure les messages de 1, 10 et 100 Kio, de 10 à 1 000 utilisateurs, sur quatre runners distincts. Chaque combinaison est répétée trois fois. Les données et l’analyse sont dans `results/`.
 
-![Application](screenshots/results.png)
+Les détails sont dans [ARCHITECTURE.md](ARCHITECTURE.md), les [plans de charge](loadtests/UTILISATION.md), le [déploiement Kubernetes](k8s/README.md) et les [workflows](.github/workflows).
+
 ![Client React](screenshots/frontend.png)
+![Quatre API réelles](screenshots/results.png)
 ![Vérifications](screenshots/tests.png)

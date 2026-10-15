@@ -1,0 +1,17 @@
+{
+  "purpose": "Actual local functional duration/batching check, excluded from comparative measurements",
+  "phase": {
+    "protocol": "grpc",
+    "size_kib": "1",
+    "concurrency": "2",
+    "repetition": "1",
+    "start_ms": "1792031063732",
+    "end_ms": "1792031073734",
+    "duration_seconds": "10.001878",
+    "batches": "427"
+  },
+  "attempted_calls": 3416,
+  "failures": 0,
+  "dataset": "Previously generated local rows reset; seed client/chambre/reservation preserved",
+  "sha256_raw": "7426ae40e46ed937e9061f86a4ad616906111997ab180c16e35570067c099de1"
+}
