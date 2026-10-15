@@ -1,0 +1,223 @@
+{
+  "info": {
+    "name": "Hôtel - CRUD et JWT",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "rest",
+      "value": "http://localhost:19601"
+    },
+    {
+      "key": "graphql",
+      "value": "http://localhost:19603"
+    },
+    {
+      "key": "jwt",
+      "value": ""
+    },
+    {
+      "key": "id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Connexion JWT",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{rest}}/auth/token",
+        "auth": {
+          "type": "noauth"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\": \"student\", \"password\": \"labpass\"}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP200',()=>pm.response.to.have.status(200));",
+              "pm.collectionVariables.set('jwt',pm.response.json().token);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Créer réservation",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{rest}}/api/reservations",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{jwt}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"clientId\": 1, \"chambreId\": 20, \"dateDebut\": \"2035-01-01\", \"dateFin\": \"2035-01-03\", \"preferences\": \"Chambre calme\"}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP201',()=>pm.response.to.have.status(201));",
+              "pm.collectionVariables.set('id',pm.response.json().id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Lire réservation",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{rest}}/api/reservations/{{id}}",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{jwt}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Modifier réservation",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{rest}}/api/reservations/{{id}}",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{jwt}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"clientId\": 1, \"chambreId\": 20, \"dateDebut\": \"2035-01-01\", \"dateFin\": \"2035-01-04\", \"preferences\": \"Chambre calme\"}"
+        }
+      }
+    },
+    {
+      "name": "Clients",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{rest}}/api/clients",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{jwt}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Chambres",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{rest}}/api/chambres",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{jwt}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GraphQL détails",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{graphql}}/graphql",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{jwt}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"query\": \"query($id:ID!){reservation(id:$id){id dateDebut dateFin preferences client{id nom} chambre{id type prix}}}\", \"variables\": {\"id\": \"{{id}}\"}}"
+        }
+      }
+    },
+    {
+      "name": "Supprimer réservation",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{rest}}/api/reservations/{{id}}",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{jwt}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

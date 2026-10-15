@@ -1,5 +1,5 @@
 {
-  "took": 171,
+  "took": 688,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -9,153 +9,153 @@
   },
   "hits": {
     "total": {
-      "value": 1580,
+      "value": 2208,
       "relation": "eq"
     },
     "max_score": 1,
     "hits": [
       {
         "_index": "hotel-lab",
-        "_id": "X9ZGPaEBdfgaSx_tdGMs",
+        "_id": "k0VbPaEBQVrJ-DNQy1TD",
         "_score": 1,
         "_source": {
-          "span_id": "ade0bd166bceafd8",
-          "message": "GET \"/actuator/prometheus\", parameters={}",
-          "service": "hotel-grpc-api",
-          "@timestamp": "2026-10-15T01:56:04.248896600Z",
-          "trace_id": "6775c1f2d1f593056a316b996e59cc12",
-          "logger_name": "org.springframework.web.servlet.DispatcherServlet",
-          "@version": "1",
-          "level": "DEBUG",
-          "level_value": 10000,
-          "trace_flags": "01",
-          "thread_name": "http-nio-19604-exec-8"
-        }
-      },
-      {
-        "_index": "hotel-lab",
-        "_id": "R9ZGPaEBdfgaSx_tdGMp",
-        "_score": 1,
-        "_source": {
-          "span_id": "7ea81334bb4e3f59",
-          "message": "Mapped to Actuator web endpoint 'prometheus'",
-          "service": "hotel-soap-api",
-          "@timestamp": "2026-10-15T01:55:52.124363400Z",
-          "trace_id": "a09f8277a28136f1ff06e83325bdc793",
-          "logger_name": "org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping",
-          "@version": "1",
-          "level": "DEBUG",
-          "level_value": 10000,
-          "trace_flags": "01",
-          "thread_name": "http-nio-19602-exec-10"
-        }
-      },
-      {
-        "_index": "hotel-lab",
-        "_id": "SNZGPaEBdfgaSx_tdGMp",
-        "_score": 1,
-        "_source": {
-          "span_id": "7ea81334bb4e3f59",
-          "message": "Read \"application/octet-stream\" to []",
-          "service": "hotel-soap-api",
-          "@timestamp": "2026-10-15T01:55:52.125364900Z",
-          "trace_id": "a09f8277a28136f1ff06e83325bdc793",
+          "service": "hotel-rest-api",
+          "trace_id": "3e9cbf9fdc4145a87fafbb2cfdc51968",
           "logger_name": "org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor",
-          "@version": "1",
-          "level": "DEBUG",
+          "message": "Read \"application/octet-stream\" to []",
+          "@timestamp": "2026-10-15T02:19:48.441031800Z",
+          "thread_name": "http-nio-19601-exec-4",
+          "span_id": "1f8b902eaa5d8179",
           "level_value": 10000,
-          "trace_flags": "01",
-          "thread_name": "http-nio-19602-exec-10"
+          "level": "DEBUG",
+          "@version": "1",
+          "trace_flags": "01"
         }
       },
       {
         "_index": "hotel-lab",
-        "_id": "QtZGPaEBdfgaSx_tdGMm",
+        "_id": "l0VbPaEBQVrJ-DNQzFRY",
         "_score": 1,
         "_source": {
-          "span_id": "ade0bd166bceafd8",
-          "message": "Writing [\"# TYPE application_started_time_seconds gauge<EOL># HELP application_started_time_seconds Time taken to  (truncated)...\"]",
-          "service": "hotel-grpc-api",
-          "@timestamp": "2026-10-15T01:56:04.660995300Z",
-          "trace_id": "6775c1f2d1f593056a316b996e59cc12",
-          "logger_name": "org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor",
-          "@version": "1",
-          "level": "DEBUG",
-          "level_value": 10000,
-          "trace_flags": "01",
-          "thread_name": "http-nio-19604-exec-8"
-        }
-      },
-      {
-        "_index": "hotel-lab",
-        "_id": "Q9ZGPaEBdfgaSx_tdGMm",
-        "_score": 1,
-        "_source": {
-          "span_id": "ade0bd166bceafd8",
-          "message": "Completed 200 OK",
-          "service": "hotel-grpc-api",
-          "@timestamp": "2026-10-15T01:56:04.663027300Z",
-          "trace_id": "6775c1f2d1f593056a316b996e59cc12",
+          "service": "hotel-rest-api",
+          "trace_id": "3e9cbf9fdc4145a87fafbb2cfdc51968",
           "logger_name": "org.springframework.web.servlet.DispatcherServlet",
-          "@version": "1",
-          "level": "DEBUG",
+          "message": "Completed 200 OK",
+          "@timestamp": "2026-10-15T02:19:48.591793700Z",
+          "thread_name": "http-nio-19601-exec-4",
+          "span_id": "1f8b902eaa5d8179",
           "level_value": 10000,
-          "trace_flags": "01",
-          "thread_name": "http-nio-19604-exec-8"
+          "level": "DEBUG",
+          "@version": "1",
+          "trace_flags": "01"
         }
       },
       {
         "_index": "hotel-lab",
-        "_id": "SdZGPaEBdfgaSx_tdGMp",
+        "_id": "mEVbPaEBQVrJ-DNQzlTY",
         "_score": 1,
         "_source": {
-          "span_id": "7ea81334bb4e3f59",
+          "service": "hotel-grpc-api",
+          "trace_id": "eebda8cad999fcfe5fefbc649def0f7d",
+          "logger_name": "org.springframework.web.servlet.DispatcherServlet",
+          "message": "GET \"/actuator/prometheus\", parameters={}",
+          "@timestamp": "2026-10-15T02:19:49.229353700Z",
+          "thread_name": "http-nio-19604-exec-8",
+          "span_id": "57e4b0be2652b4fd",
+          "level_value": 10000,
+          "level": "DEBUG",
+          "@version": "1",
+          "trace_flags": "01"
+        }
+      },
+      {
+        "_index": "hotel-lab",
+        "_id": "nEVbPaEBQVrJ-DNQz1ST",
+        "_score": 1,
+        "_source": {
+          "service": "hotel-grpc-api",
+          "trace_id": "eebda8cad999fcfe5fefbc649def0f7d",
+          "logger_name": "org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor",
+          "message": "Writing [\"# TYPE jvm_gc_max_data_size_bytes gauge<EOL># HELP jvm_gc_max_data_size_bytes Max size of long-lived hea (truncated)...\"]",
+          "@timestamp": "2026-10-15T02:19:49.415678300Z",
+          "thread_name": "http-nio-19604-exec-8",
+          "span_id": "57e4b0be2652b4fd",
+          "level_value": 10000,
+          "level": "DEBUG",
+          "@version": "1",
+          "trace_flags": "01"
+        }
+      },
+      {
+        "_index": "hotel-lab",
+        "_id": "n0VbPaEBQVrJ-DNQ2VTb",
+        "_score": 1,
+        "_source": {
+          "service": "hotel-soap-api",
+          "trace_id": "b4b6a17638c12077a82ef0dadbc54714",
+          "logger_name": "org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping",
+          "message": "Mapped to Actuator web endpoint 'prometheus'",
+          "@timestamp": "2026-10-15T02:19:52.048598400Z",
+          "thread_name": "http-nio-19602-exec-2",
+          "span_id": "11ca36492e110a29",
+          "level_value": 10000,
+          "level": "DEBUG",
+          "@version": "1",
+          "trace_flags": "01"
+        }
+      },
+      {
+        "_index": "hotel-lab",
+        "_id": "oUVbPaEBQVrJ-DNQ2lR_",
+        "_score": 1,
+        "_source": {
+          "service": "hotel-soap-api",
+          "trace_id": "b4b6a17638c12077a82ef0dadbc54714",
+          "logger_name": "org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor",
           "message": "Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response",
-          "service": "hotel-soap-api",
-          "@timestamp": "2026-10-15T01:55:52.653736100Z",
-          "trace_id": "a09f8277a28136f1ff06e83325bdc793",
-          "logger_name": "org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor",
-          "@version": "1",
-          "level": "DEBUG",
+          "@timestamp": "2026-10-15T02:19:52.211590700Z",
+          "thread_name": "http-nio-19602-exec-2",
+          "span_id": "11ca36492e110a29",
           "level_value": 10000,
-          "trace_flags": "01",
-          "thread_name": "http-nio-19602-exec-10"
+          "level": "DEBUG",
+          "@version": "1",
+          "trace_flags": "01"
         }
       },
       {
         "_index": "hotel-lab",
-        "_id": "StZGPaEBdfgaSx_tdGMp",
+        "_id": "pEVcPaEBQVrJ-DNQBlRc",
         "_score": 1,
         "_source": {
-          "span_id": "7ea81334bb4e3f59",
-          "message": "Writing [\"# TYPE hikaricp_connections_timeout counter<EOL># HELP hikaricp_connections_timeout Connection timeout t (truncated)...\"]",
-          "service": "hotel-soap-api",
-          "@timestamp": "2026-10-15T01:55:52.653736100Z",
-          "trace_id": "a09f8277a28136f1ff06e83325bdc793",
-          "logger_name": "org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor",
-          "@version": "1",
-          "level": "DEBUG",
-          "level_value": 10000,
-          "trace_flags": "01",
-          "thread_name": "http-nio-19602-exec-10"
-        }
-      },
-      {
-        "_index": "hotel-lab",
-        "_id": "S9ZGPaEBdfgaSx_tdGMp",
-        "_score": 1,
-        "_source": {
-          "span_id": "7ea81334bb4e3f59",
-          "message": "Completed 200 OK",
-          "service": "hotel-soap-api",
-          "@timestamp": "2026-10-15T01:55:52.656512Z",
-          "trace_id": "a09f8277a28136f1ff06e83325bdc793",
+          "service": "hotel-rest-api",
+          "trace_id": "d3cf9f463f17a41b7217192937bde265",
           "logger_name": "org.springframework.web.servlet.DispatcherServlet",
-          "@version": "1",
-          "level": "DEBUG",
+          "message": "GET \"/actuator/prometheus\", parameters={}",
+          "@timestamp": "2026-10-15T02:20:03.439804400Z",
+          "thread_name": "http-nio-19601-exec-5",
+          "span_id": "05631e8e2792f0d1",
           "level_value": 10000,
-          "trace_flags": "01",
-          "thread_name": "http-nio-19602-exec-10"
+          "level": "DEBUG",
+          "@version": "1",
+          "trace_flags": "01"
+        }
+      },
+      {
+        "_index": "hotel-lab",
+        "_id": "pUVcPaEBQVrJ-DNQBlRc",
+        "_score": 1,
+        "_source": {
+          "service": "hotel-rest-api",
+          "trace_id": "d3cf9f463f17a41b7217192937bde265",
+          "logger_name": "org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping",
+          "message": "Mapped to Actuator web endpoint 'prometheus'",
+          "@timestamp": "2026-10-15T02:20:03.440314400Z",
+          "thread_name": "http-nio-19601-exec-5",
+          "span_id": "05631e8e2792f0d1",
+          "level_value": 10000,
+          "level": "DEBUG",
+          "@version": "1",
+          "trace_flags": "01"
         }
       }
     ]
@@ -167,19 +167,19 @@
       "buckets": [
         {
           "key": "hotel-rest-api",
-          "doc_count": 1117
+          "doc_count": 1357
         },
         {
           "key": "hotel-grpc-api",
-          "doc_count": 228
+          "doc_count": 419
         },
         {
           "key": "hotel-soap-api",
-          "doc_count": 219
+          "doc_count": 413
         },
         {
           "key": "hotel-graphql",
-          "doc_count": 16
+          "doc_count": 19
         }
       ]
     }

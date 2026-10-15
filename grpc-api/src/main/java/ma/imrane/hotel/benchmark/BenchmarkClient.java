@@ -35,7 +35,7 @@ public class BenchmarkClient {
         Path path=Path.of(System.getProperty("output","results/raw-client.csv"));Files.createDirectories(path.toAbsolutePath().getParent());
         try(var writer=new PrintWriter(Files.newBufferedWriter(path,StandardCharsets.UTF_8));var phases=new PrintWriter(Files.newBufferedWriter(Path.of(path+".phases.csv"),StandardCharsets.UTF_8))){
             csv=writer;phaseCsv=phases;csv.println("timestamp,protocol,size_kib,concurrency,repetition,operation,elapsed_ms,success,request_bytes,response_bytes");
-            phases.println("protocol,size_kib,concurrency,repetition,start_ms,end_ms,duration_seconds");
+            phases.println("protocol,size_kib,concurrency,repetition,start_ms,end_ms,duration_seconds,batches");
             for(String protocol:System.getProperty("protocols","rest,soap,graphql,grpc").split(","))
                 for(int size:numbers("sizes","1,10,100")) for(int users:numbers("users","10,100,500,1000"))
                     for(int repeat=1;repeat<=Integer.getInteger("repetitions",3);repeat++) phase(protocol,size,users,repeat);
@@ -44,9 +44,24 @@ public class BenchmarkClient {
 
     private static void phase(String protocol,int size,int users,int repetition) throws Exception {
         if(System.currentTimeMillis()-tokenIssued>20*60_000L)authenticate();
-        var pool=executor(users);var gate=new CountDownLatch(1);var futures=new ArrayList<Future<?>>();
-        String date=LocalDate.of(2040,1,1).plusDays(++phaseSequence*10L).toString();
+        var pool=executor(users);
         long startedMillis=System.currentTimeMillis(),start=System.nanoTime();
+        long minimum=Long.getLong("min.duration.seconds",10L)*1_000_000_000L;
+        int batches=0;
+        try{
+            do{
+                // Changer les dates évite qu'un DELETE échoué contamine le lot suivant.
+                String date=LocalDate.of(2040,1,1).plusDays(++phaseSequence*10L).toString();
+                batch(protocol,size,users,repetition,pool,date);batches++;
+            }while(System.nanoTime()-start<minimum);
+        }finally{pool.shutdown();pool.awaitTermination(30,TimeUnit.SECONDS);}
+        csv.flush();
+        if(phaseCsv!=null){phaseCsv.printf(Locale.ROOT,"%s,%d,%d,%d,%d,%d,%.6f,%d%n",protocol,size,users,repetition,startedMillis,System.currentTimeMillis(),(System.nanoTime()-start)/1e9,batches);phaseCsv.flush();}
+        System.out.printf(Locale.ROOT,"%s size=%dKiB users=%d repetition=%d batches=%d duration=%.3fs%n",protocol,size,users,repetition,batches,(System.nanoTime()-start)/1e9);
+    }
+
+    private static void batch(String protocol,int size,int users,int repetition,ExecutorService pool,String date) throws Exception {
+        var gate=new CountDownLatch(1);var futures=new ArrayList<Future<?>>();
         for(int user=0;user<users;user++){
             final int number=user;
             futures.add(pool.submit(()->{
@@ -65,10 +80,7 @@ public class BenchmarkClient {
                 catch(Exception error){System.err.println(protocol+" worker: "+error.getClass().getSimpleName()+" "+error.getMessage());}
             }));
         }
-        gate.countDown();for(var future:futures)future.get();pool.shutdown();pool.awaitTermination(30,TimeUnit.SECONDS);
-        csv.flush();
-        if(phaseCsv!=null){phaseCsv.printf(Locale.ROOT,"%s,%d,%d,%d,%d,%d,%.6f%n",protocol,size,users,repetition,startedMillis,System.currentTimeMillis(),(System.nanoTime()-start)/1e9);phaseCsv.flush();}
-        System.out.printf(Locale.ROOT,"%s size=%dKiB users=%d repetition=%d duration=%.3fs%n",protocol,size,users,repetition,(System.nanoTime()-start)/1e9);
+        gate.countDown();for(var future:futures)future.get();
     }
 
     private static void authenticate() throws Exception {

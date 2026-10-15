@@ -7,6 +7,7 @@ import math
 import os
 from pathlib import Path
 import platform
+import shutil
 import subprocess
 import threading
 import time
@@ -30,7 +31,7 @@ def monitor():
     previous = None
     with (OUT / "resources.csv").open("w", newline="") as output:
         writer = csv.writer(output)
-        writer.writerow(["timestamp_ms", "protocol", "cpu_percent_one_core", "rss_bytes", "read_bytes", "write_bytes"])
+        writer.writerow(["timestamp_ms", "interval_start_ms", "protocol", "cpu_percent_one_core", "rss_bytes", "read_bytes", "write_bytes"])
         while not STOP.is_set():
             try:
                 raw = command("docker", "exec", "hotel-measured", "sh", "-c", "cat /proc/1/stat /proc/1/status /proc/1/io")
@@ -39,8 +40,8 @@ def monitor():
                 cpu = (int(stat[11]) + int(stat[12])) / ticks
                 values = {line.split(":", 1)[0]:line.split(":", 1)[1].strip() for line in lines[1:] if ":" in line}
                 now = time.time()
-                percent = 0 if previous is None else 100 * (cpu - previous[1]) / (now - previous[0])
-                writer.writerow([round(now * 1000), PROTOCOL, round(percent, 4),
+                percent = "" if previous is None else round(100 * (cpu - previous[1]) / (now - previous[0]), 4)
+                writer.writerow([round(now * 1000),round(previous[0]*1000) if previous else "", PROTOCOL, percent,
                     int(values["VmRSS"].split()[0]) * 1024, int(values["read_bytes"]), int(values["write_bytes"])])
                 output.flush()
                 previous = now, cpu
@@ -59,6 +60,8 @@ def aggregate():
         for row in csv.DictReader(source):
             phases[(row["size_kib"], row["concurrency"], row["repetition"])] = row
     groups = collections.defaultdict(lambda:{"latencies":[], "errors":0, "request":0, "response":0})
+    with (OUT / "resources.csv").open(newline="") as source:
+        resources=list(csv.DictReader(source))
     with (OUT / "raw.csv").open(newline="") as source:
         for row in csv.DictReader(source):
             key = row["size_kib"], row["concurrency"], row["repetition"], row["operation"]
@@ -78,6 +81,20 @@ def aggregate():
                 round(sum(values) / len(values), 4), percentile(values, .5), percentile(values, .95), percentile(values, .99),
                 round(len(values) / float(phase["duration_seconds"]), 4), round(group["request"] / len(values), 3), round(group["response"] / len(values), 3)])
     assert len(phases) == (1 if SMOKE else 36), f"Incomplete phases: {len(phases)}"
+    with (OUT / "phase-resources.csv").open("w",newline="") as output:
+        writer=csv.writer(output)
+        writer.writerow(["protocol","size_kib","concurrency","repetition","cpu_samples","rss_samples","mean_cpu_percent_one_core","peak_cpu_percent_one_core","mean_rss_bytes","peak_rss_bytes"])
+        for key,phase in phases.items():
+            samples=[row for row in resources if float(phase["start_ms"])<=float(row["timestamp_ms"])<=float(phase["end_ms"])]
+            cpu_samples=[row for row in samples if row["interval_start_ms"] and float(row["interval_start_ms"])>=float(phase["start_ms"])]
+            if not SMOKE:
+                assert len(cpu_samples)>=3,f"Missing real CPU interval coverage for phase {key}: {len(cpu_samples)} intervals"
+                assert float(phase["duration_seconds"])>=10,f"Phase shorter than10s: {key}"
+            cpu=[float(row["cpu_percent_one_core"]) for row in cpu_samples]
+            rss=[int(row["rss_bytes"]) for row in samples]
+            covered_ms=sum(float(row["timestamp_ms"])-float(row["interval_start_ms"]) for row in cpu_samples)
+            mean_cpu=sum(float(row["cpu_percent_one_core"])*(float(row["timestamp_ms"])-float(row["interval_start_ms"])) for row in cpu_samples)/covered_ms if covered_ms else ""
+            writer.writerow([PROTOCOL,*key,len(cpu_samples),len(samples),mean_cpu,max(cpu) if cpu else "",sum(rss)/len(rss) if rss else "",max(rss) if rss else ""])
     if SMOKE:
         actual = sum(len(group["latencies"]) for key,group in groups.items() if key[3]=="ALL")
         errors = sum(group["errors"] for key,group in groups.items() if key[3]=="ALL")
@@ -98,10 +115,12 @@ def main():
         "commit":os.environ.get("GITHUB_SHA"),"platform":platform.platform(),"visible_cpus":os.cpu_count(),
         "cpu_budget":4,"memory_budget_bytes":8*1024**3,"server_limit_bytes":1024**3,
         "database_limit_bytes":1024**3,"generator_limit_bytes":6*1024**3,
-        "server_java_heap":"160m","server_node_heap":"160m","generator_java_heap":"512m",
-        "java_server":"17","java_generator":"21.0.8+9","postgres":"16.15","shared_database":False,
+        "server_java_heap":"160m","server_node_heap":"160m","generator_java_heap":"1g",
+        "server_runtime_family":"Node" if PROTOCOL=="graphql" else "Java",
+        "java_generator":"21.0.8+9","postgres":"16.15","shared_database":False,
         "metrics":"real process /proc/1 CPU ticks and VmRSS every2s; one core=100%",
         "payload":"canonical business JSON 1/10/100KiB; recorded bytes exclude transport headers/framing",
+        "min_duration_seconds":0 if SMOKE else 10,"minimum_resource_samples_per_full_phase":3,
         "started_unix":time.time()}
     (OUT / "environment.json").write_text(json.dumps(metadata, indent=2))
     thread = None
@@ -131,13 +150,22 @@ def main():
                 time.sleep(2)
         print("RUNNER_HEALTHY",PROTOCOL,"database100/1000/1 + targetAPIUP",flush=True)
         (OUT/"containers.json").write_text(command("docker","inspect","hotel-measured","hotel-postgres"))
+        metadata["server_runtime_version"] = command("docker","exec","hotel-measured", "node" if PROTOCOL=="graphql" else "java", "--version" if PROTOCOL=="graphql" else "-version",stderr=subprocess.STDOUT)
+        metadata["postgres_runtime_version"] = command("docker","exec","hotel-postgres","psql","-U","lab","-d","hotel","-Atc","SHOW server_version")
+        metadata["server_image_id"] = command("docker","inspect","--format={{.Image}}","hotel-measured")
+        metadata["postgres_image_id"] = command("docker","inspect","--format={{.Image}}","hotel-postgres")
+        metadata["generator_runtime_version"] = command("docker","run","--rm","--memory=256m","eclipse-temurin:21.0.8_9-jre-jammy","java","-version",stderr=subprocess.STDOUT)
+        metadata["cpu_model"] = next((line.split(":",1)[1].strip() for line in Path("/proc/cpuinfo").read_text().splitlines() if line.startswith("model name")),"unknown")
+        metadata["runner_filesystem_bytes"] = shutil.disk_usage(ROOT).total
+        (OUT/"environment.json").write_text(json.dumps(metadata,indent=2))
         thread=threading.Thread(target=monitor);thread.start()
         args=["docker","run","--name","hotel-generator","--network","host","--memory=6g","--cpus=4",
             "-v",str(ROOT)+":/work:ro","-v",str(OUT)+":/results","-w","/work",
-            "eclipse-temurin:21.0.8_9-jre-jammy","java","-Xmx512m","-Xss512k",
+            "eclipse-temurin:21.0.8_9-jre-jammy","java","-Xmx1g","-Xss512k",
             "-Dloader.main=ma.imrane.hotel.benchmark.BenchmarkClient","-Doutput=/results/raw.csv",
             "-Dprotocols="+PROTOCOL,"-Dlogin.port="+str(PORT)]
-        if SMOKE:args += ["-Dusers=2","-Dsizes=1","-Drepetitions=1"]
+        if SMOKE:args += ["-Dusers=2","-Dsizes=1","-Drepetitions=1","-Dmin.duration.seconds=0"]
+        else:args += ["-Dmin.duration.seconds=10"]
         args += ["-cp","grpc-api/target/grpc-api-1.0.0.jar","org.springframework.boot.loader.launch.PropertiesLauncher"]
         with (OUT/"client.log").open("w") as log:subprocess.run(args,cwd=ROOT,stdout=log,stderr=subprocess.STDOUT,check=True)
         STOP.set();thread.join(15)
